@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Hello World Assignment</title>
-	<link rel="stylesheet" href="web/helloStyle.css">
-	<script src="web/helloJs.js"></script>
+  <title>Hello World</title>
+  <style>
+    canvas {
+      border: #333 10px solid;
+    }
+
+    body {
+      padding: 50px;
+    }
+  </style>
 </head>
+
 <body>
-	<canvas id="canvas"></canvas>
+  <canvas id="myCanvas" width="550px" height="350px"></canvas>
+
+  <script>
+  	// CODE REFERENCED AND INSPIRED BY https://www.kirupa.com/canvas/canvas_high_dpi_retina.htm 
+
+
+    let canvas = document.querySelector("#myCanvas");
+    let context = canvas.getContext("2d");
+
+	let rect = canvas.getBoundingClientRect();
+
+	canvas.width = rect.width * devicePixelRatio;
+	canvas.height = rect.height * devicePixelRatio;
+
+	context.scale(devicePixelRatio, devicePixelRatio);
+
+	canvas.style.width = rect.width + 'px';
+	canvas.style.height = rect.height + 'px';
+
+    function draw() {
+      // draw the colored region
+      context.beginPath();
+      context.arc(200, 130, 254, 0, 2 * Math.PI, true);
+      context.fillStyle = "#E2FFC6";
+      context.fill();
+
+      // draw hello world
+      context.fillStyle = "black";
+      context.font = "30px roboto";
+      context.fillText("Hello World", 130, 115);
+
+      // draw the stroke
+      context.lineWidth = 10;
+      context.strokeStyle = "#66CC01";
+      context.stroke();
+    }
+    draw();
+  </script>
+
 </body>
+
 </html>
