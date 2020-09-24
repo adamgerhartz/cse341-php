@@ -1,0 +1,10 @@
+.col-sm-4 {
+	background-color: DarkSeaGreen;
+	font-size: 2em;
+	text-align: left;
+	padding: 20px 0;
+	border-radius: 2px;
+}
+.col-sm-4:hover {
+	font-weight: bold;
+}

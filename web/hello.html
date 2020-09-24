@@ -26,6 +26,9 @@
 
 	let rect = canvas.getBoundingClientRect();
 
+	// Canvas, by default, does not take high resolution into account,
+	//    which doesn't make much sense to me, but here is a link about 
+	//    it: https://searchvoidstar.tumblr.com/post/86542847038/high-dpi-rendering-on-html5-canvas-some-problems
 	canvas.width = rect.width * devicePixelRatio;
 	canvas.height = rect.height * devicePixelRatio;
 
@@ -35,7 +38,7 @@
 	canvas.style.height = rect.height + 'px';
 
     function draw() {
-      // draw the colored region
+      // colored circle
       context.beginPath();
       context.arc(200, 130, 254, 0, 2 * Math.PI, true);
       context.fillStyle = "#E2FFC6";
@@ -46,7 +49,7 @@
       context.font = "30px roboto";
       context.fillText("Hello World", 130, 115);
 
-      // draw the stroke
+      // border around circle
       context.lineWidth = 10;
       context.strokeStyle = "#66CC01";
       context.stroke();

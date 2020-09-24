@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>02 Teach: Team Activity</title>
+	<script src="main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function(){
+  		$("#change_color_btn").click(function(){
+    		$("#div1").css("background-color", $("#color_input").val());
+  		});
+
+  		$("#fade").click(function() {
+  			if ($("#div3").is(":visible")) {
+  				$("#div3").fadeOut("slow");
+  				$("#fade").html("Fade In");
+  			} else {
+  				$("#div3").fadeIn("slow");
+  				$("#fade").html("Fade Out");
+  			}
+		});
+	});
+
+
+	</script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="div1" class="col-sm-4">
+			<p>Change color here:</p>
+			<input type="text" id="color_input">
+			<button id="change_color_btn">Change Color</button>
+		    </div>
+
+		    <div id="div2" class="col-sm-4">
+				<p>This is another card</p>
+			</div>
+			<div id="div3" class="col-sm-4">
+				<p>And this is another card ...</p>
+			</div>
+	    </div>
+	    <div class="row">
+	    	<button id="my_btn" onclick="alertClicked()">Click Me</button>
+			<button id="fade">Fade out</button>
+		</div>
+		
+		
+	</div>
+	
+</body>
+
+</html>
