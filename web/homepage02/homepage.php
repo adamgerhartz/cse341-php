@@ -19,7 +19,7 @@
 				<a id="target" href="#">Home</a>
 			</div>
 			<div class="col-sm-5">
-				<a href="assignments.html">My CSE 341 Assignments</a>
+				<a href="assignments.php">My CSE 341 Assignments</a>
 			</div>
 		</div>
 

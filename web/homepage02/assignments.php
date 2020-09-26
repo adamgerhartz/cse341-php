@@ -19,7 +19,7 @@
 		<div class="row" id="row1">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-1">
-				<a href="homepage.html">Home</a>
+				<a href="homepage.php">Home</a>
 			</div>
 			<div class="col-sm-5">
 				<a id="target" href="#">My CSE 341 Assignments</a>
