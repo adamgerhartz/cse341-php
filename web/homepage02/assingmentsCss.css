@@ -1,0 +1,31 @@
+#row1 {
+	background-color: #00003f;
+}
+
+.col-sm-1, .col-sm-5, .col-sm-8 {
+	padding: 5px 0;
+	padding-left: 10px;
+}
+
+#target {
+	font-weight: bold;
+	color: lightblue;
+	letter-spacing: 3px;
+}
+
+a {
+	padding: 5px;
+	color: white;
+	font-size: 14px;
+	font-family: roboto;
+	letter-spacing: 2px;
+}
+
+
+a:hover {
+	color: lightblue;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+

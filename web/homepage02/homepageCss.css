@@ -1,0 +1,88 @@
+#row1, #footer {
+	background-color: #00003f;
+}
+
+.col-sm-1, .col-sm-5, .col-sm-8 {
+	padding: 5px 0;
+	padding-left: 10px;
+}
+
+#target {
+	font-weight: bold;
+	color: lightblue;
+	letter-spacing: 3px;
+}
+
+a, #foot_text {
+	padding: 5px;
+	color: white;
+	font-size: 14px;
+	font-family: roboto;
+	letter-spacing: 2px;
+}
+
+a:hover {
+	color: lightblue;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+
+#row2 {
+	padding-top: 50px;
+}
+
+#row3 {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+hr {
+	width: 85%;
+	border-top: 1px solid #EAEAEA;
+}
+
+#profile_back {
+	margin: auto;
+	height: 80%;
+	width: 20%;
+	background-color: #8FBC8F;
+	border-radius: 60%;
+	box-shadow: 5px 10px 18px #888888;
+}
+
+#text {
+	margin: auto;
+	height: auto;
+	width: 85%;
+	border-radius: 5px;
+	padding: 10px;
+	object-position: center;
+}
+
+h1, h6 {
+	font-family: roboto;
+	letter-spacing: 2px;
+}
+
+p {
+	font-family: quicksand;
+	letter-spacing: 1px;
+}
+
+#first_p {
+	padding-top: 25px;
+}
+
+#author {
+	color: #BABABA;
+}
+
+#profile_picture {
+	padding: 2%;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-position: center;
+  	object-fit: cover;
+}
