@@ -35,7 +35,7 @@
 		<div class="row" id="row3">
 			<div class="align-middle"></div>
 				<div id="text">
-					<h1><strong>Interested in side projocts</strong></h1>
+					<h1><strong>Interested in side projects</strong></h1>
 					<h6 id="author">by Adam Gerhartz</h6>
 					<p id="first_p">When I was in high school, I played varsity tennis. Tennis was a sport that I enjoyed playing for fun. Playing varsity in high school, however, was very competitive. I often hated the pressure. Coupled with nerves, my game wasn't as good as when I would goof around and just play for fun.</p>
 					<p>When I start writing computer programs for fun, I am really able to express my creativity. Side projects have always been a good hobby of mine. I love being able to think out a problem and provide a solution to that problem. I like to program whatever is in my mind, from an Android application that helps a user memorize scriptures, to an interactive video game, to a spreedsheet generator. I like it all. If I think it, I want to program it, and I have fun doing it.</p>
