@@ -1,0 +1,25 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.navbar {
+    background-color: #f6f0e8;  
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: #E2CFB6 !important;
+    border-color: #E2CFB6 !important;
+    color: #574022 !important;
+}
+
+.badge-primary, .badge-primary:hover, .badge-primary:active, .badge-outline:visited {
+    background-color: #E2CFB6 !important;
+    border-color: #E2CFB6 !important;
+    color: #438542 !important;
+    float: right !important;
+}
+
+i {
+    color: black;
+    float: left;
+}
