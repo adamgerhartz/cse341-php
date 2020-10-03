@@ -17,9 +17,14 @@
     border-color: #E2CFB6 !important;
     color: #438542 !important;
     float: right !important;
+    padding-left: 2px !important;
 }
 
 i {
     color: black;
     float: left;
+}
+
+#space {
+    height: 50px !important;
 }
