@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $line1Err = "Only letters, whitespace, and numbers are allowed";
     } else {
     	$isValidLine1 = true;
+    	$_SESSION['address'] .= $line1 . ' ';
     }
   }
   
@@ -46,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $line2 = "";
   } else {
     $line2 = test_input($_POST["line2"]);
+    $_SESSION['address'] .= $line2 . '\n';
   }
     
   if (empty($_POST["city"])) {
@@ -57,6 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $cityErr = "Invalid city name";
     } else {
     	$isValidCity = true;
+    	$_SESSION['address'] .= $city . ' ';
+    	$_SESSION['address'] .= $state . ' ';
     }
   }
 
@@ -68,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $zipErr = "Invalid zip code";
       } else {
       	$isValidZip = true;
+      	$_SESSION['address'] .= $zip;
       }
     }
   
@@ -78,13 +83,6 @@ function test_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
-}
-
-function setSession() {
-	if ($isValidLine1 && $isValidCity && $isValidZip) {
-		$_SESSION['submit'] = "CONFIRMED";
-	}
-	
 }
 
 ?>
@@ -112,8 +110,20 @@ function setSession() {
 
 		<?php
 		function display() {
+			$items = $_SESSION['items'];
+			$length = $_SESSION['length'];
 		    echo "CONFIRMED";
-			echo $_SESSION;
+		    echo '<br>';
+		    echo $_SESSION['address'];
+		    
+		    $decoded = json_decode($_SESSION['items'], true);
+		    
+		    for ($i = 0; $i < $length; $i++) {
+		    	echo '<br>Item ' . ($i + 1) . ': ';
+		    	echo $decoded[$i]['name']; 
+		    }
+		    
+		  
 		}
 
 		 
