@@ -4,6 +4,7 @@
 session_start();
 
 
+$_SESSION['submit'] = "";
 
 
 if(isset($_POST['action']) && !empty($_POST['action'])) {

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,39 +13,117 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">	
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="check-out.js"></script>
+	<style>
+	.error {color: #FF0000;}
+	</style>
 </head>
-<body>
 
+	
+<body onload="loadStateData()">
+
+	<?php
+// define variables and set to empty values
+$line1Err = $cityErr = $zipErr = "";
+$line1 = $line2 = $city = $zip = "";
+$isValidLine1 = $isValidCity = $isValidZip = false;
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["line1"])) {
+    $line1Err = "Name is required";
+  } else {
+    $line1 = test_input($_POST["line1"]);
+    if (!preg_match("/^(?:[Pp][Oo]\s[Bb][Oo][Xx]|[0-9]+)\s(?:[0-9A-Za-z\.'#]|[^\S\r\n])+$/",$line1)) {
+      $line1Err = "Only letters, whitespace, and numbers are allowed";
+    } else {
+    	$isValidLine1 = true;
+    }
+  }
+  
+  if (empty($_POST["line2"])) {
+    $line2 = "";
+  } else {
+    $line2 = test_input($_POST["line2"]);
+  }
+    
+  if (empty($_POST["city"])) {
+    $cityErr = "City required";
+  } else {
+    $city = test_input($_POST["city"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/",$city)) {
+      $cityErr = "Invalid city name";
+    } else {
+    	$isValidCity = true;
+    }
+  }
+
+  if(empty($_POST["zip"])) {
+      $zipErr = "Zip code required";
+    } else {
+      $zip = test_input($_POST["zip"]);
+      if (!preg_match("/^\d{5}(?:[-\s]\d{4})?$/", $zip)) {
+        $zipErr = "Invalid zip code";
+      } else {
+      	$isValidZip = true;
+      }
+    }
+  
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function setSession() {
+	if ($isValidLine1 && $isValidCity && $isValidZip) {
+		$_SESSION['submit'] = "CONFIRMED";
+	}
+	
+}
+
+?>
 	<div class="container">
 		<nav class="navbar navbar-light fixed-top"></nav>
 		<br><br><br>
-		<h1>Enter your shipping address: <span id="length"></span></h1>
-		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-
-			<label for="address_line_1">Address Line 1</label>
-			<input type="text" id="address_line_1" name="address_line_1">
-			<span class="error">* <?php echo $addressErr;?></span>
+		<h1 <?php if($isValidLine1 && $isValidCity && $isValidZip) { echo 'style="display:none;"'; }?>>Enter your shipping address:</h1>
+		<form method="post" <?php if($isValidLine1 && $isValidCity && $isValidZip) { echo 'style="display:none;"'; }?> action="">  
+			Address Line 1: <input type="text" name="line1" value="<?php echo $line1;?>">
+			<span class="error">* <?php echo $line1Err;?></span>
 			<br><br>
-			<label for="address_line_2">Address Line 2</label>
-			<input type="text" id="address_line_2" name="address_line_2">
-			<span class="error"><?php echo $emailErr;?></span>
+			Address Line 2: <input type="text" name="line2" value="<?php echo $line2;?>">
 			<br><br>
-			<label for="city">City</label>
-			<input type="text" id="city" name="city">
+			City: <input type="text" name="city" value="<?php echo $city;?>">
 			<span class="error">* <?php echo $cityErr;?></span>
 			<br><br>
-			<label for="state">State</label>
-			<input type="text" id="state" name="state">
-			<span class="error">* <?php echo $stateErr;?></span>
-			<br><br>
-			<label for="zip">Zip Code</label>
-			<input type="text" id="zip" name="zip">
-			<span class="error">* <?php echo $zipErr;?></span>
-			<br><br>
-			<input type="submit" name="submit" value="Submit">
-
+			State: <select name="state" id="state"></select>
+	  		<br><br>
+	  		Zip: <input type="text" name="zip" value="<?php echo $zip;?>">
+	  		<span class="error">* <?php echo $zipErr;?></span>
+	  		<br><br>
+	  		<input type="submit" name="submit" value="Submit">  
 		</form>
 		<div id="space"></div>
+
+		<?php
+		function display() {
+		    echo "CONFIRMED";
+			echo $_SESSION;
+		}
+
+		 
+
+		if(isset($_POST['submit'])) {
+			if ($isValidLine1 && $isValidCity && $isValidZip) {
+				display();
+			} 
+		}
+		?>
 			
 	</div>
 
