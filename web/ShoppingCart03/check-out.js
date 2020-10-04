@@ -68,3 +68,5 @@ function loadStateData() {
 	for (index in states) {
 		 state.options[state.options.length] = new Option(states[index], index);
 	}
+
+}

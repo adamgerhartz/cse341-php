@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // get data from api
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, "https://hplussport.com/api/products/order/price");
