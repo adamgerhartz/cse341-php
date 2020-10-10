@@ -52,7 +52,7 @@ CREATE TABLE public.post (
 # Users get notifications wqhen they have received an incoming friend request, 
 # an outgoing friend request was approved, when a friend posts on their page, and 
 # as a welcome when the user first regisiters and logs in
-CREATE TABLE notification (
+CREATE TABLE public.notification (
 	notification_id SERIAL NOT NULL PRIMARY KEY,
 	user_id INT NOT NULL REFERENCES public.user(user_id),
 	type VARCHAR(10) NOT NULL,
