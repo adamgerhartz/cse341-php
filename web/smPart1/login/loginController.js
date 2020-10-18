@@ -43,8 +43,10 @@ export default class LoginController {
 			this.loginView.getRidOfErrorMessage();
 		});
 
-		this.passwordElement.addEventListener('keyup', ()=> {
-			this.hashedPassword = (this.hashPassword(event.target.value)).toString();
+		this.passwordElement.addEventListener('keyup', (event)=> {
+			if (event.target.value !== '') {
+				this.hashedPassword = (this.hashPassword(event.target.value)).toString();
+			}
 		});
 
 		// check if username and password are empty. Double check the data actually is verified.
