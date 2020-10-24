@@ -122,7 +122,6 @@ export default class RegistrationController {
 
 		// Password Element
 		this.passwordElement.addEventListener('keydown', ()=> {
-			this.hashedPassword = '';
 			this.registrationView.getRidOfErrorMessage();
 		});
 
