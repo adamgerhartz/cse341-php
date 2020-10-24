@@ -58,11 +58,11 @@ export default class RegistrationModel {
 				url: '../db/dbController.php',
 				type: 'post',
 				data: {
-					un: `${un}`,
-					em: `${em}`,
-					fn: `${fn}`,
-					ln: `${ln}`,
-					pw: `${pw}`,
+					value1: `${un}`,
+					value2: `${em}`,
+					value3: `${fn}`,
+					value4: `${ln}`,
+					value5: `${pw}`,
 					type: type
 				},
 				success: function(data) {
