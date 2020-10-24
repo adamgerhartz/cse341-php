@@ -66,9 +66,11 @@ export default class RegistrationModel {
 					type: type
 				},
 				success: function(data) {
+					console.log('YES');
 					resolve(data);
 				},
 				error: function(err) {
+					console.log('NO');
 					reject(err);
 				}
 			});
