@@ -31,6 +31,22 @@ class DbModel {
 	    	print_r('false');
 	    }
     }
+
+    function addRecord($username, $password, $email, $first_nm, $last_nm) {
+    	global $db;
+    	$stmt = $db->prepare('INSERT INTO public.user (username, password, email_address, first_nm, last_name, creation_date, last_update_date) VALUES (:username, :password, :email_address, :firstname, :lastname, now(), now();');
+    	$stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    	$stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    	$stmt->bindValue(':email_address', $email, PDO::PARAM_STR);
+    	$stmt->bindValue(':firstname', $first_nm, PDO::PARAM_STR);
+    	$stmt->bindValue(':lastname', $last_nm, PDO::PARAM_STR);
+
+    	if ($stmt->execute()) {
+    		print_r('true');
+    	} else {
+    		print_r('false');
+    	}
+    }
  }
 
 ?>

@@ -243,20 +243,19 @@ export default class RegistrationController {
 
 			// check for unique username
 			if (!isEmptyUsername) {
-				this.registrationModel.existsInDb(this.username, 'username').then((value) => {
+				this.registrationModel.existsInDB(this.username, 'username').then((value) => {
 					if (value === 'true') {
 						this.registrationView.renderErrorMessage('inUn');
-					}
-					// } else {
-					// 	this.registrationModel.addToDB(this.username, this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
-					// 		if (value === 'true') {
-					// 			window.location.href = './registrationConfirmation.php';
-					// 		} else {
-					// 			this.registrationView.renderErrorMessage('er-upload');
-					// 		}
-					// 	});
+					} else {
+						this.registrationModel.addToDB(this.username, this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
+							if (value === 'true') {
+								window.location.href = './registrationConfirmation.php';
+							} else {
+								this.registrationView.renderErrorMessage('er-upload');
+							}
+						});
 						
-					// }
+					}
 				});
 			}
 		});

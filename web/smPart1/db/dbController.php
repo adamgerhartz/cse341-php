@@ -15,6 +15,13 @@ switch ($_POST['type']) {
 		$username = $_POST['value2'];
 		$response = $dbModel->queryPassword($password, $username);
 		break;
+	case 'add':
+		$username = $_POST['un'];
+		$password = $_POST['pw'];
+		$email = $_POST['em'];
+		$first_nm = $_POST['fn'];
+		$last_nm = $_POST['ln'];
+		$response = $dbModel->addRecord($username, $password, $email, $first_nm, $last_nm);
 	default:
 		break;
 }
