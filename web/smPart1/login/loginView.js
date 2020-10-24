@@ -75,11 +75,9 @@ export default class LoginView {
 
 	isErrorMessageDisplayed() {
 		console.log(this.formElement.children);
-		if (this.formElement.childNodes.length > 3) {
+		if (this.formElement.childNodes.length > 4) {
 			return true;
 		}
 		return false;
 	}
-
-
 }
