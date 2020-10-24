@@ -24,7 +24,7 @@ export default class LoginController {
 
 	addLoginListeners() {
 		// Check if the input rules are being followed
-		this.usernameElement.addEventListener('keydown', (event)=> {
+		this.usernameElement.addEventListener('keyup', (event)=> {
 			this.loginView.getRidOfErrorMessage();
 			this.username = event.target.value;
 			const isValidUsername = this.isValidUsername(this.username);
