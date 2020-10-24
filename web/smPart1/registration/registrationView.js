@@ -17,6 +17,10 @@ export default class RegistrationView {
 	renderForm() {
 		this.formParentElement.innerHTML = '';
 		this.formParentElement.appendChild(this.renderInputDiv('Username'));
+		this.formParentElement.appendChild(this.renderInputDiv('Email'));
+		this.formParentElement.appendChild(this.renderNestedDiv('full-name'));
+		this.formParentElement.appendChild(this.renderInputDiv('Password'));
+		this.formParentElement.appendChild(this.renderSubmitDiv());
 	}
 
 	/*********************************
@@ -29,7 +33,37 @@ export default class RegistrationView {
 			<label for='${child.toLowerCase()}'>${child}</label><br/>
 			<input type="${child === 'Password' ? 'password' : 'text'}" class='light' name='${child.toLowerCase()}' autocomplete='off'>
 		`);
-		console.log(div);
+		return div;
+	}
+
+	/*********************************
+	* <div full-name>
+	*   <div>FirstName</div>
+	*   <div>LastName</div>
+	* </div>
+	**********************************/
+	renderNestedDiv(id) {
+		const div = document.createElement('div');
+		div.setAttribute('id', id);
+		div.innerHTML = (`
+			<div id='firstNameContainer'>
+			  <label for='firstname'>First Name:</label><br/>
+			  <input type='text' class='light' name='firstname' autocomplete='off'>
+			</div>
+			<div id='lastNameContainer'>
+			  <label for='lastname'>Last Name:</label><br/>
+			  <input type='text' class='light' name='lastname' autocomplete='off'>
+			</div>
+		`);
+		return div;
+	}
+
+	/********************************
+	* This method renders the submit button
+	*********************************/
+	renderSubmitDiv() {
+		const div = document.createElement('div');
+		div.innerHTML = `<input type='submit' class='light' name='submit' value='Register'>`;
 		return div;
 	}
 
@@ -77,6 +111,8 @@ export default class RegistrationView {
 				case 'un-e':
 					span.innerHTML += ` Please enter a username`;
 					break;
+				case 'em-char':
+					span.innerHTML += ` Please provide an email address under 100 characters.`
 				case 'pw':
 					span.innerHTML += ` Please enter a password`;
 					break;

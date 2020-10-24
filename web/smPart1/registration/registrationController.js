@@ -13,7 +13,7 @@ export default class RegistrationController {
 		this.parentElement = document.getElementById(parentId);
 		this.registrationView = new RegistrationView(this.parentElement);
 		this.registrationModel = new RegistrationModel();
-		this.usernameElement, this.username = '';
+		this.usernameElement, this.username, this.emailElement, this.email = '';
 	}
 
 	/****************************************
@@ -32,12 +32,14 @@ export default class RegistrationController {
 	****************************************/
 	setLocationProperties() {
 		this.usernameElement = [...[...this.parentElement.children][0].children][2];
+		this.emailElement = [...[...this.parentElement.children][1].children][2];
 	}
 
 	/***************************************
 	* This handles user interaction and form validation
 	****************************************/
 	addRegistrationListeners() {
+		// Username Element
 		this.usernameElement.addEventListener('keydown', ()=> {
 			this.loginView.getRidOfErrorMessage();
 		});
@@ -53,6 +55,19 @@ export default class RegistrationController {
 		});
 
 		// Email Element
+		this.emailElement.addEventListener('keydown', ()=> {
+			this.loginView.getRidOfErrorMessage();
+		});
+
+		this.emailElement.addEventListener('keyup', (event)=> {
+			this.email = event.target.value;
+			const fitsInDBCell = this.isNotLong(this.email.length);
+			if (!fitsInDBCell && !this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.renderErrorMesssage('em-char');
+			} else if (fitsInDBCell && this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.getRidOfErrorMessage();
+			}
+		});
 
 		// First name element
 
@@ -60,7 +75,7 @@ export default class RegistrationController {
 
 		// Password Element
 
-		// handle submit events
+		// handle submit events (check username, valid email format, )
 
 	}
 
@@ -71,7 +86,7 @@ export default class RegistrationController {
 	*     - security
 	***************************************/
 	isValidUsername() {
-		if (this.username.length > 100) {
+		if (!isNotLong(this.username.length)) {
 			return false;
 		}
 
@@ -85,6 +100,17 @@ export default class RegistrationController {
 			return false;
 		}
 
+		return true;
+	}
+
+	/**************************************
+	* This method ensures an input is not longer
+	* than 100 characters
+	***************************************/
+	isNotLong(length) {
+		if (length > 100) {
+			return false;
+		}
 		return true;
 	}
 
