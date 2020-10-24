@@ -29,11 +29,13 @@ export default class LoginController {
 		// Check if the input rules are being followed
 		this.usernameElement.addEventListener('keyup', (event)=> {
 			this.username = event.target.value;
-			const isValidUsername = this.isValidUsername(this.username);
-			if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMessage('un');
-			} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
+			if (this.username !== '') {
+				const isValidUsername = this.isValidUsername(this.username);
+				if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
+					this.loginView.renderErrorMessage('un');
+				} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
+					this.loginView.getRidOfErrorMessage();
+				}
 			}
 		});
 
@@ -78,8 +80,7 @@ export default class LoginController {
 		username = this.escapeHtml(username);
 
 		// error checking if username does not start with an alpha character
-		if (!this.isAlpha(username) && this.isEmpty(username)) {
-			console.log('FALSE');
+		if (!this.isAlpha(username)) {
 			return false;
 		} 
 
@@ -136,7 +137,6 @@ export default class LoginController {
 
 	isEmpty(str) {
 		const char = str.charCodeAt(0);
-		console.log(char);
 		if (!(Number.isNaN(char))) {
 			return false;
 		}
@@ -149,19 +149,6 @@ export default class LoginController {
 		return str.indexOf(' ') >= 0;
 	}
 
-	// run = async (event) => {
-	// 	await this.sleep(0.1);
-	// 	event.preventDefault();
-	// 	console.log('awake');
-	// }
-
-	// sleep(duration) {
-	// 	return new Promise(resolve => {
-	// 		setTimeout(() => {
-	// 			resolve('resolved')
-	// 		}, duration * 1000)
-	// 	})
-	// }
 
 	/******************************************************************
 	* This took me forever to do, and I still don't like it. This 
