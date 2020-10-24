@@ -13,7 +13,16 @@ export default class RegistrationController {
 		this.parentElement = document.getElementById(parentId);
 		this.registrationView = new RegistrationView(this.parentElement);
 		this.registrationModel = new RegistrationModel();
-		this.usernameElement, this.username, this.emailElement, this.email, this.firstNameElement, this.firstName, this.lastNameElement, this.lastName, this.passwordElement, this.hashedPassword = '';
+		this.usernameElement = '';
+		this.username = '';
+		this.emailElement = '';
+		this.email = '';
+		this.firstNameElement = '';
+		this.firstName = '';
+		this.lastNameElement = '';
+		this.lastName = '';
+		this.passwordElement = '';
+		this.hashedPassword = '';
 	}
 
 	/****************************************
@@ -44,73 +53,82 @@ export default class RegistrationController {
 	addRegistrationListeners() {
 		// Username Element
 		this.usernameElement.addEventListener('keydown', ()=> {
-			this.loginView.getRidOfErrorMessage();
+			this.registrationView.getRidOfErrorMessage();
 		});
 
 		this.usernameElement.addEventListener('keyup', (event)=> {
 			this.username = event.target.value;
-			const isValidUsername = this.isValidUsername(this.username);
-			if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMesssage('un');
-			} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
+			if (this.username !== '') {
+				const isValidUsername = this.isValidUsername(this.username);
+				if (!isValidUsername && !this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.renderErrorMessage('un');
+				} else if (isValidUsername && this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.getRidOfErrorMessage();
+				}
 			}
+			
 		});
 
 		// Email Element
 		this.emailElement.addEventListener('keydown', ()=> {
-			this.loginView.getRidOfErrorMessage();
+			this.registrationView.getRidOfErrorMessage();
 		});
 
 		this.emailElement.addEventListener('keyup', (event)=> {
 			this.email = event.target.value;
-			const isPartiallyValid = this.isPartiallyValidEmail(this.email);
-			if (!isPartiallyValid && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMesssage('em-char');
-			} else if (isPartiallyValid && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
+			if (this.email !== '') {
+				const isPartiallyValid = this.isPartiallyValidEmail(this.email);
+				if (!isPartiallyValid && !this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.renderErrorMessage('em-char');
+				} else if (isPartiallyValid && this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.getRidOfErrorMessage();
+				}
 			}
 		});
 
 		// First name element
 		this.firstNameElement.addEventListener('keydown', ()=> {
-			this.loginView.getRidOfErrorMessage();
+			this.registrationView.getRidOfErrorMessage();
 		})
 
 		this.firstNameElement.addEventListener('keyup', (event)=> {
 			this.firstName = event.target.value;
-			const isValidName = this.isValidName(this.firstName);
-			if(!isValidName && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMesssage('fnm');
-			} else if (isValidName && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
+			if (this.firstName !== '') {
+				const isValidName = this.isValidName(this.firstName);
+				if(!isValidName && !this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.renderErrorMessage('fnm');
+				} else if (isValidName && this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.getRidOfErrorMessage();
+				}
 			}
 		})
 
 		// Last Name element
 		this.lastNameElement.addEventListener('keydown', ()=> {
-			this.loginView.getRidOfErrorMessage();
+			this.registrationView.getRidOfErrorMessage();
 		})
 
 		this.lastNameElement.addEventListener('keyup', (event)=> {
 			this.lastName = event.target.value;
-			const isValidName = this.isValidName(this.lastName);
-			if(!isValidName && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMesssage('lnm');
-			} else if (isValidName && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
-			}
+			if (this.lastName !== '') {
+				const isValidName = this.isValidName(this.lastName);
+				if(!isValidName && !this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.renderErrorMessage('lnm');
+				} else if (isValidName && this.registrationView.isErrorMessageDisplayed()) {
+					this.registrationView.getRidOfErrorMessage();
+				}
+			}	
 		})
 
 		// Password Element
 		this.passwordElement.addEventListener('keydown', ()=> {
 			this.hashedPassword = '';
-			this.loginView.getRidOfErrorMessage();
+			this.registrationView.getRidOfErrorMessage();
 		});
 
 		this.passwordElement.addEventListener('keyup', (event)=> {
 			if (event.target.value !== '') {
-				this.hashedPassword = this.hashPassword(event.tartget.value).toString();
+				this.hashedPassword = this.hashPassword(event.target.value).toString();
 			}
 		});
 
@@ -125,13 +143,13 @@ export default class RegistrationController {
 	*     - security
 	***************************************/
 	isValidUsername(username) {
-		if (!isNotLong(username.length)) {
+		if (!this.isNotLong(username.length)) {
 			return false;
 		}
 
-		this.username = this.escapeHtml(username);
+		username = this.escapeHtml(username);
 
-		if (!this.isAlpha(username) && !this.isEmpty(username)) {
+		if (!this.isAlpha(username)) {
 			return false;
 		}
 
@@ -149,7 +167,7 @@ export default class RegistrationController {
 	* email is a valid email
 	***************************************/
 	isPartiallyValidEmail(email) {
-		if (!isNotLong(email.length)) {
+		if (!this.isNotLong(email.length)) {
 			return false;
 		}
 
@@ -166,16 +184,16 @@ export default class RegistrationController {
 	* character, and looks that the user doesn't use anything but alpha characters
 	***************************************/
 	isValidName(name) {
-		if (!isNotLong(name.length)) {
+		if (!this.isNotLong(name.length)) {
 			return false;
 		}
 
-		const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+		if (this.isWhiteSpaceFront(name)) {
+			return false;
+		}
+
+		const regName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
 		if (!regName.test(name)) {
-			return false;
-		}
-
-		if (isEmpty(name)) {
 			return false;
 		}
 
@@ -199,41 +217,41 @@ export default class RegistrationController {
 			const isEmptyPassword = this.isEmpty(this.hashedPassword);
 			
 			// check if we are empty
-			if (isEmptyUsername || isEmptyEmailAddress || isEmptyFirstName || isEmptyLastName || isEmptyPassword || this.loginView.isErrorMessageDisplayed()) {
+			if (isEmptyUsername || isEmptyEmailAddress || isEmptyFirstName || isEmptyLastName || isEmptyPassword || this.registrationView.isErrorMessageDisplayed()) {
 				if (isEmptyUsername) {
-					this.loginView.renderErrorMesssage('un-e');
+					this.registrationView.renderErrorMessage('un-e');
 				}
 				if (isEmptyEmailAddress) {
-					this.loginView.renderErrorMesssage('ea-e');
+					this.registrationView.renderErrorMessage('ea-e');
 				}
 				if (isEmptyFirstName) {
-					this.loginView.renderErrorMesssage('fnm-e');
+					this.registrationView.renderErrorMessage('fnm-e');
 				}
 				if (isEmptyLastName) {
-					this.loginView.renderErrorMesssage('lnm-e');
+					this.registrationView.renderErrorMessage('lnm-e');
 				}
 				if (isEmptyPassword) {
-					this.loginView.renderErrorMesssage('pw-e');
+					this.registrationView.renderErrorMessage('pw-e');
 				}
 			}
 
 			// check for valid email address
 			const isValidEmailAddress = this.isValidEmailAddress(this.email);
-			if (!isValidEmailAddress) {
-				this.loginView.renderErrorMesssage('ea-in');
+			if (!isValidEmailAddress && !isEmptyEmailAddress) {
+				this.registrationView.renderErrorMessage('ea-in');
 			}
 
 			// check for unique username
 			// if (!isEmptyUsername) {
 			// 	this.loginModel.existsInDB(this.username, 'username').then((value) => {
 			// 		if (value === 'true') {
-			// 			this.loginView.renderErrorMesssage('inUn');
+			// 			this.registrationView.renderErrorMessage('inUn');
 			// 		} else {
 			// 			this.loginModel.addToDB(this.username, this.hashedPassword).then((value) => {
 			// 				if (value === 'true') {
 			// 					window.location.href = './registrationConfirmation.php';
 			// 				} else {
-			// 					this.loginView.renderErrorMesssage('er-upload');
+			// 					this.registrationView.renderErrorMessage('er-upload');
 			// 				}
 			// 			});
 						
@@ -285,13 +303,28 @@ export default class RegistrationController {
 	/*************************************
 	* This method checks if the first letter is empty
 	**************************************/
+	isWhiteSpaceFront(str) {
+		const char = str.charCodeAt(0);
+		console.log(char);
+		if (char === parseInt('32')) {
+			return true;
+		}
+		return false;
+	}
+
+	/*************************************
+	* This method checks if there is no value whatsover
+	**************************************/
 	isEmpty(str) {
 		const char = str.charCodeAt(0);
+		console.log(char);
 		if (!(Number.isNaN(char))) {
 			return false;
 		}
 		return true;
 	}
+
+
 
 	/************************************
 	* This method checks for whitespace in the string

@@ -78,7 +78,7 @@ export default class LoginController {
 		username = this.escapeHtml(username);
 
 		// error checking if username does not start with an alpha character
-		if (!this.isAlpha(username) && !this.isEmpty(username)) {
+		if (!this.isAlpha(username) && this.isEmpty(username)) {
 			console.log('FALSE');
 			return false;
 		} 
