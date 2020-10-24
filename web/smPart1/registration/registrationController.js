@@ -13,6 +13,7 @@ export default class RegistrationController {
 		this.parentElement = document.getElementById(parentId);
 		this.registrationView = new RegistrationView(this.parentElement);
 		this.registrationModel = new RegistrationModel();
+		this.usernameElement = '';
 	}
 
 	/****************************************
@@ -20,6 +21,24 @@ export default class RegistrationController {
 	* event listeners.
 	*****************************************/
 	showRegistrationForm() {
+		this.registrationView.renderForm();
+		this.setLocationProperties();
+		this.addRegistrationListeners();
+	}
+
+	/***************************************
+	* The controller wants to save important 
+	* form element locations
+	****************************************/
+	setLocationProperties() {
+		this.usernameElement = [...[...this.parentElement.children][0].children[2];
+		console.log(`Username Element:<br/>${this.usernameElement}`);
+	}
+
+	/***************************************
+	* This handles user interaction and form validation
+	****************************************/
+	addRegistrationListeners() {
 
 	}
 }
