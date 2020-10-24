@@ -7,7 +7,7 @@
 ***************************************/
 export default class RegistrationView {
 	constructor(formParentElement) {
-		this.formParentElement - formParentElement;
+		this.formParentElement = formParentElement;
 	}
 
 	/**********************************
