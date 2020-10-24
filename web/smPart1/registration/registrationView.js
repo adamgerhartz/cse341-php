@@ -15,7 +15,7 @@ export default class RegistrationView {
 	* form. 
 	***********************************/
 	renderForm() {
-		this.formParentElement = '';
+		this.formParentElement.innerHTML = '';
 		this.formParentElement.appendChild(this.renderInputDiv('Username'));
 	}
 
@@ -25,7 +25,7 @@ export default class RegistrationView {
 	**********************************/
 	renderInputDiv(label) {
 		const div = document.createElement('div');
-		div.innerHtml = (`
+		div.innerHTML = (`
 			<label for='${label.toLowerCase()}'>${label}</label><br/>
 			<input type='${label === 'Password' ? 'password' : 'text'}' class='light' name='${label.toLowerCase()}' autocomplete='off'>
 		`);
