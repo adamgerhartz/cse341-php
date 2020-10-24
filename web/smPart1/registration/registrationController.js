@@ -247,10 +247,11 @@ export default class RegistrationController {
 					if (value === 'true') {
 						this.registrationView.renderErrorMessage('inUn');
 					} else {
-						this.registrationModel.existsInDB(this.username, 'add', this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
-							if (value === 'true') {
+						this.registrationModel.addToDB(this.username, 'add', this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
+							if (value === '1') {
 								window.location.href = './registrationConfirmation.php';
 							} else {
+								console.log(typeof value);
 								this.registrationView.renderErrorMessage('er-upload');
 							}
 						});

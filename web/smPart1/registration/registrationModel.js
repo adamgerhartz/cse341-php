@@ -10,8 +10,8 @@ export default class RegistrationModel {
 	* This method starts a new thread and
 	* makes a call request to the server
 	************************************/
-	async existsInDB(param1, type, param2='', param3='', param4='', param5='') {
-		const promise = this.getPromiseRetrieve(param1, type, param2, param3, param4, param5);
+	async existsInDB(param1, type, param2='') {
+		const promise = this.getPromiseRetrieve(param1, type, param2);
 		let result = await promise;
 		return result;
 	}
@@ -29,7 +29,7 @@ export default class RegistrationModel {
 	/***********************************
 	* This method sends the request to server
 	************************************/
-	getPromiseRetrieve(param1, type, param2, param3, param4, param5) {
+	getPromiseRetrieve(param1, type, param2) {
 		return new Promise((resolve, reject) => {
 			$.ajax({
 				url: '../db/dbController.php',
@@ -37,10 +37,7 @@ export default class RegistrationModel {
 				data: {
 					value1: `${param1}`,
 					type: type,
-					value2: `${param2}`,
-					value3: `${param3}`,
-					value4: `${param4}`,
-					value5: `${param5}`
+					value2: `${param2}`
 				},
 				success: function(data) {
 					resolve(data);
@@ -61,11 +58,11 @@ export default class RegistrationModel {
 				url: '../db/dbController.php',
 				type: 'post',
 				data: {
-					value1: `${un}`,
-					value2: `${em}`,
-					value3: `${fn}`,
-					value4: `${ln}`,
-					value5: `${pw}`,
+					un: `${un}`,
+					em: `${em}`,
+					fn: `${fn}`,
+					ln: `${ln}`,
+					pw: `${pw}`,
 					type: type
 				},
 				success: function(data) {
