@@ -31,7 +31,7 @@ export default class RegistrationController {
 	* form element locations
 	****************************************/
 	setLocationProperties() {
-		this.usernameElement = [...[...this.parentElement.children][0].children[2];
+		this.usernameElement = [...[...this.parentElement.children][0].children[2]];
 		console.log(`Username Element:<br/>${this.usernameElement}`);
 	}
 
