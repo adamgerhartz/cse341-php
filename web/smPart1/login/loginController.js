@@ -22,7 +22,7 @@ export default class LoginController {
 		this.addLoginListeners();	
 	}
 
-	async addLoginListeners() {
+	addLoginListeners() {
 		// Check if the input rules are being followed
 		this.usernameElement.addEventListener('keydown', (event)=> {
 			this.loginView.getRidOfErrorMessage();
