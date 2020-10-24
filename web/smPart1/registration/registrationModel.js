@@ -11,7 +11,7 @@ export default class RegistrationModel {
 	* makes a call request to the server
 	************************************/
 	async existsInDB(param1, type, param2='', param3='', param4='', param5='') {
-		const promise = this.getPromiseRetrieve(param1, type, param2);
+		const promise = this.getPromiseRetrieve(param1, type, param2, param3, param4, param5);
 		let result = await promise;
 		return result;
 	}
@@ -29,7 +29,7 @@ export default class RegistrationModel {
 	/***********************************
 	* This method sends the request to server
 	************************************/
-	getPromiseRetrieve(param1, type, param2) {
+	getPromiseRetrieve(param1, type, param2, param3, param4, param5) {
 		return new Promise((resolve, reject) => {
 			$.ajax({
 				url: '../db/dbController.php',
