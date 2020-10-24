@@ -13,7 +13,7 @@ export default class RegistrationController {
 		this.parentElement = document.getElementById(parentId);
 		this.registrationView = new RegistrationView(this.parentElement);
 		this.registrationModel = new RegistrationModel();
-		this.usernameElement, this.username, this.emailElement, this.email = '';
+		this.usernameElement, this.username, this.emailElement, this.email, this.firstNameElement, this.firstName, this.lastNameElement, this.lastName, this.passwordElement, this.hashedPassword = '';
 	}
 
 	/****************************************
@@ -33,6 +33,9 @@ export default class RegistrationController {
 	setLocationProperties() {
 		this.usernameElement = [...[...this.parentElement.children][0].children][2];
 		this.emailElement = [...[...this.parentElement.children][1].children][2];
+		this.firstNameElement = [...[...this.parentElement.children][2][0].children][2];
+		this.lastNameElement = [...[...this.parentElement.children][2][1].children][2];
+		this.passwordElement = [...[...this.parentElement.children][3].children][2];
 	}
 
 	/***************************************
@@ -46,7 +49,7 @@ export default class RegistrationController {
 
 		this.usernameElement.addEventListener('keyup', (event)=> {
 			this.username = event.target.value;
-			const isValidUsername = this.isValidUsername();
+			const isValidUsername = this.isValidUsername(this.username);
 			if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
 				this.loginView.renderErrorMesssage('un');
 			} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
@@ -61,22 +64,58 @@ export default class RegistrationController {
 
 		this.emailElement.addEventListener('keyup', (event)=> {
 			this.email = event.target.value;
-			const fitsInDBCell = this.isNotLong(this.email.length);
-			if (!fitsInDBCell && !this.loginView.isErrorMessageDisplayed()) {
+			const isPartiallyValid = this.isPartiallyValidEmail(this.email);
+			if (!isPartiallyValid && !this.loginView.isErrorMessageDisplayed()) {
 				this.loginView.renderErrorMesssage('em-char');
-			} else if (fitsInDBCell && this.loginView.isErrorMessageDisplayed()) {
+			} else if (isPartiallyValid && this.loginView.isErrorMessageDisplayed()) {
 				this.loginView.getRidOfErrorMessage();
 			}
 		});
 
 		// First name element
+		this.firstNameElement.addEventListener('keydown', ()=> {
+			this.loginView.getRidOfErrorMessage();
+		})
+
+		this.firstNameElement.addEventListener('keyup', (event)=> {
+			this.firstName = event.target.value;
+			const isValidName = this.isValidName(this.firstName);
+			if(!isValidName && !this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.renderErrorMesssage('fnm');
+			} else if (isValidName && this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.getRidOfErrorMessage();
+			}
+		})
 
 		// Last Name element
+		this.lastNameElement.addEventListener('keydown', ()=> {
+			this.loginView.getRidOfErrorMessage();
+		})
+
+		this.lastNameElement.addEventListener('keyup', (event)=> {
+			this.lastName = event.target.value;
+			const isValidName = this.isValidName(this.lastName);
+			if(!isValidName && !this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.renderErrorMesssage('lnm');
+			} else if (isValidName && this.loginView.isErrorMessageDisplayed()) {
+				this.loginView.getRidOfErrorMessage();
+			}
+		})
 
 		// Password Element
+		this.passwordElement.addEventListener('keydown', ()=> {
+			this.hashedPassword = '';
+			this.loginView.getRidOfErrorMessage();
+		});
 
-		// handle submit events (check username, valid email format, )
+		this.passwordElement.addEventListener('keyup', (event)=> {
+			if (event.target.value !== '') {
+				this.hashedPassword = this.hashPassword(event.tartget.value).toString();
+			}
+		});
 
+		// handle submit events (check username, valid email format, empty)
+		this.handleSubmitEvent();
 	}
 
 	/**************************************
@@ -85,22 +124,123 @@ export default class RegistrationController {
 	*     - first character is an alpha character
 	*     - security
 	***************************************/
-	isValidUsername() {
-		if (!isNotLong(this.username.length)) {
+	isValidUsername(username) {
+		if (!isNotLong(username.length)) {
 			return false;
 		}
 
-		this.username = this.escapeHtml();
+		this.username = this.escapeHtml(username);
 
-		if (!this.isAlpha() && !this.isEmpty()) {
+		if (!this.isAlpha(username) && !this.isEmpty(username)) {
 			return false;
 		}
 
-		if (this.isWhiteSpace()) {
+		if (this.isWhiteSpace(username)) {
 			return false;
 		}
 
 		return true;
+	}
+
+	/**************************************
+	* This method partially validates and email. 
+	* It checks that there are no whitespaces and the length
+	* is able to fit in a DB cell. It does not check if the
+	* email is a valid email
+	***************************************/
+	isPartiallyValidEmail(email) {
+		if (!isNotLong(email.length)) {
+			return false;
+		}
+
+		if (this.isWhiteSpace(email)) {
+			return false;
+		}
+
+		return true;
+
+	}
+
+	/**************************************
+	* Valid name just checks for no white space as the beginning
+	* character, and looks that the user doesn't use anything but alpha characters
+	***************************************/
+	isValidName(name) {
+		if (!isNotLong(name.length)) {
+			return false;
+		}
+
+		const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+		if (!regName.test(name)) {
+			return false;
+		}
+
+		if (isEmpty(name)) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**************************************
+	* This method handles the following when a user taps on the
+	* submit event:
+	*   1. no empty fields
+	*   2. username is unique from the DB
+	*   3. the email is a valid email address
+	***************************************/
+	handleSubmitEvent() {
+		this.parentElement.addEventListener('submit', (event)=> {
+			event.preventDefault();
+			const isEmptyUsername = this.isEmpty(this.username);
+			const isEmptyEmailAddress = this.isEmpty(this.email);
+			const isEmptyFirstName = this.isEmpty(this.firstName);
+			const isEmptyLastName = this.isEmpty(this.lastName);
+			const isEmptyPassword = this.isEmpty(this.hashedPassword);
+			
+			// check if we are empty
+			if (isEmptyUsername || isEmptyEmailAddress || isEmptyFirstName || isEmptyLastName || isEmptyPassword || this.loginView.isErrorMessageDisplayed()) {
+				if (isEmptyUsername) {
+					this.loginView.renderErrorMesssage('un-e');
+				}
+				if (isEmptyEmailAddress) {
+					this.loginView.renderErrorMesssage('ea-e');
+				}
+				if (isEmptyFirstName) {
+					this.loginView.renderErrorMesssage('fnm-e');
+				}
+				if (isEmptyLastName) {
+					this.loginView.renderErrorMesssage('lnm-e');
+				}
+				if (isEmptyPassword) {
+					this.loginView.renderErrorMesssage('pw-e');
+				}
+			}
+
+			// check for valid email address
+			const isValidEmailAddress = this.isValidEmailAddress(this.email);
+			if (!isValidEmailAddress) {
+				this.loginView.renderErrorMesssage('ea-in');
+			}
+
+			// check for unique username
+			// if (!isEmptyUsername) {
+			// 	this.loginModel.existsInDB(this.username, 'username').then((value) => {
+			// 		if (value === 'true') {
+			// 			this.loginView.renderErrorMesssage('inUn');
+			// 		} else {
+			// 			this.loginModel.addToDB(this.username, this.hashedPassword).then((value) => {
+			// 				if (value === 'true') {
+			// 					window.location.href = './registrationConfirmation.php';
+			// 				} else {
+			// 					this.loginView.renderErrorMesssage('er-upload');
+			// 				}
+			// 			});
+						
+			// 		}
+			// 	});
+			// }
+		});
 	}
 
 	/**************************************
@@ -118,7 +258,7 @@ export default class RegistrationController {
 	* Credit for the JavaScript version of htmlspecialchars goes to 
 	* 'Kip' on stackoverflow: https://stackoverflow.com/questions/1787322/htmlspecialchars-equivalent-in-javascript
 	***************************************/
-	escapeHtml() {
+	escapeHtml(str) {
 	    var map = {
 	        '&': '&amp;',
 	    	'<': '&lt;',
@@ -127,14 +267,14 @@ export default class RegistrationController {
 	    	"'": '&#039;'
 	  	};
   
-  		return this.username.replace(/[&<>"']/g, function(m) { return map[m]; });
+  		return str.replace(/[&<>"']/g, function(m) { return map[m]; });
 	}
 
 	/*************************************
 	* This method checks if the first letter is an alpha character 
 	**************************************/
-	isAlpha() {
-		const char = this.username.charCodeAt(0);
+	isAlpha(str) {
+		const char = str.charCodeAt(0);
 	    if (!(char > 64 && char < 91) && // upper alpha (A-Z)
 	        !(char > 96 && char < 123)) { // lower alpha (a-z)
 	      return false;
@@ -145,8 +285,8 @@ export default class RegistrationController {
 	/*************************************
 	* This method checks if the first letter is empty
 	**************************************/
-	isEmpty() {
-		const char = this.username.charCodeAt(0);
+	isEmpty(str) {
+		const char = str.charCodeAt(0);
 		if (!(Number.isNaN(char))) {
 			return false;
 		}
@@ -156,7 +296,37 @@ export default class RegistrationController {
 	/************************************
 	* This method checks for whitespace in the string
 	*************************************/
-	isWhiteSpace() {
-		return this.username.indexOf(' ') >= 0;
+	isWhiteSpace(str) {
+		return str.indexOf(' ') >= 0;
 	}
+
+	/************************************
+	* This method hashes a password into 
+	* a set of integers
+	*   Credit for this hashing algorithm goes to 'bryc' on stackoverflow: https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
+	*************************************/
+	hashPassword(str, seed = 0) {
+    	let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    	for (let i = 0, ch; i < str.length; i++) {
+        	ch = str.charCodeAt(i);
+        	h1 = Math.imul(h1 ^ ch, 2654435761);
+        	h2 = Math.imul(h2 ^ ch, 1597334677);
+    	}
+    	h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+    	h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+    	return 4294967296 * (2097151 & h2) + (h1>>>0);
+	};
+
+	/***********************************
+	* This method returns true if we have a valid email address
+	* Credit goes to whoever posted here: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+	************************************/
+	isValidEmailAddress(email) {
+		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    	if (!re.test(String(email).toLowerCase())) {
+    		return false; 
+    	}
+    	return true;
+	}
+
 }

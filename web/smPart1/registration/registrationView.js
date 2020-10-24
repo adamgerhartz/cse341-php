@@ -109,12 +109,34 @@ export default class RegistrationView {
 					span.innerHTML += ` Username already exists in the database. Please specifiy another username.`;
 					break;
 				case 'un-e':
-					span.innerHTML += ` Please enter a username`;
+					span.innerHTML += ` Please enter a username.`;
 					break;
 				case 'em-char':
-					span.innerHTML += ` Please provide an email address under 100 characters.`
-				case 'pw':
+					span.innerHTML += ` Email must (1) limit itself to 100 characters and (2) contain no white spaces.`
+					break;
+				case 'ea-e':
+					span.innerHTML += ` Please enter an email address.`;
+					break;
+				case 'ea-in':
+					span.innerHTML += ` Invalid email address.`;
+					break;
+				case 'fnm':
+					span.innerHTML += ` Firstname must (1) be all alpha characters, (2) cannot start with a white space, and (3) limit itself to 100 characters.`;
+					break;
+				case 'fnm-e':
+					span.innerHTML += ` Please enter a first name.`;
+					break;
+				case 'lnm':
+					span.innerHTML += ` Lastname must (1) be all alpha characters, (2) cannot start with a white space, and (3) limit itself to 100 characters.`;
+					break;
+				case 'lnm-e':
+					span.innerHTML += ` Please enter a last name.`;
+					break;
+				case 'pw-e':
 					span.innerHTML += ` Please enter a password`;
+					break;
+				case 'er-upload':
+					span.innerHTML += ` Error adding credentials into the database`;
 					break;
 				default:
 					span.innerHTML += '';
