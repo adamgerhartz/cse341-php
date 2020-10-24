@@ -12,6 +12,7 @@ export default class LoginView {
 		this.formElement.appendChild(this.renderInputDiv(childOne));
 		this.formElement.appendChild(this.renderInputDiv(childTwo));
 		this.formElement.appendChild(this.renderSubmitDiv());
+		this.formElement.appendChild(this.renderAnchorRegister());
 	}
 
 	renderInputDiv(child) {
@@ -26,6 +27,12 @@ export default class LoginView {
 	renderSubmitDiv() {
 		const div = document.createElement('div');
 		div.innerHTML = `<input type='submit' class='light' name='submit'>`;
+		return div;
+	}
+
+	renderAnchorRegister() {
+		const div = document.createElement('div');
+		div.innerHTML = `<a href='../registration/register.html' id='registration-link'>Create an account</a>`;
 		return div;
 	}
 
