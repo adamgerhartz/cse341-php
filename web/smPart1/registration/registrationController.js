@@ -242,22 +242,23 @@ export default class RegistrationController {
 			}
 
 			// check for unique username
-			// if (!isEmptyUsername) {
-			// 	this.loginModel.existsInDB(this.username, 'username').then((value) => {
-			// 		if (value === 'true') {
-			// 			this.registrationView.renderErrorMessage('inUn');
-			// 		} else {
-			// 			this.loginModel.addToDB(this.username, this.hashedPassword).then((value) => {
-			// 				if (value === 'true') {
-			// 					window.location.href = './registrationConfirmation.php';
-			// 				} else {
-			// 					this.registrationView.renderErrorMessage('er-upload');
-			// 				}
-			// 			});
+			if (!isEmptyUsername) {
+				this.registrationModel.existsInDB(this.username, 'username').then((value) => {
+					if (value === 'true') {
+						this.registrationView.renderErrorMessage('inUn');
+					}
+					// } else {
+					// 	this.registrationModel.addToDB(this.username, this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
+					// 		if (value === 'true') {
+					// 			window.location.href = './registrationConfirmation.php';
+					// 		} else {
+					// 			this.registrationView.renderErrorMessage('er-upload');
+					// 		}
+					// 	});
 						
-			// 		}
-			// 	});
-			// }
+					// }
+				});
+			}
 		});
 	}
 
