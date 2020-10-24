@@ -23,9 +23,11 @@ export default class LoginController {
 	}
 
 	addLoginListeners() {
+		this.username.addEventListener('keydown', ()=> {
+			this.loginView.getRidOfErrorMessage();
+		});
 		// Check if the input rules are being followed
 		this.usernameElement.addEventListener('keyup', (event)=> {
-			this.loginView.getRidOfErrorMessage();
 			this.username = event.target.value;
 			const isValidUsername = this.isValidUsername(this.username);
 			if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
@@ -33,10 +35,6 @@ export default class LoginController {
 			} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
 				this.loginView.getRidOfErrorMessage();
 			}
-		});
-
-		this.usernameElement.addEventListener('keyup', (event)=> {
-			this.username = event.target.value;
 		});
 
 		this.passwordElement.addEventListener('keydown', ()=> {
@@ -151,19 +149,19 @@ export default class LoginController {
 		return str.indexOf(' ') >= 0;
 	}
 
-	run = async (event) => {
-		await this.sleep(0.1);
-		event.preventDefault();
-		console.log('awake');
-	}
+	// run = async (event) => {
+	// 	await this.sleep(0.1);
+	// 	event.preventDefault();
+	// 	console.log('awake');
+	// }
 
-	sleep(duration) {
-		return new Promise(resolve => {
-			setTimeout(() => {
-				resolve('resolved')
-			}, duration * 1000)
-		})
-	}
+	// sleep(duration) {
+	// 	return new Promise(resolve => {
+	// 		setTimeout(() => {
+	// 			resolve('resolved')
+	// 		}, duration * 1000)
+	// 	})
+	// }
 
 	/******************************************************************
 	* This took me forever to do, and I still don't like it. This 
