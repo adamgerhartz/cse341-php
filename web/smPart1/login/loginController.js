@@ -128,6 +128,7 @@ export default class LoginController {
 	***************************/
 	isAlpha(str) {
 		const char = str.charCodeAt(0);
+		console.log(char);
 	    if (!(char > 64 && char < 91) && // upper alpha (A-Z)
 	        !(char > 96 && char < 123)) { // lower alpha (a-z)
 	      return false;
@@ -137,6 +138,7 @@ export default class LoginController {
 
 	isEmpty(str) {
 		const char = str.charCodeAt(0);
+		console.log(char);
 		if (!(Number.isNaN(char))) {
 			return false;
 		}
