@@ -10,7 +10,7 @@ export default class RegistrationModel {
 	* This method starts a new thread and
 	* makes a call request to the server
 	************************************/
-	async existsInDB(param1, type, param2='') {
+	async existsInDB(param1, type, param2='', param3='', param4='', param5='') {
 		const promise = this.getPromiseRetrieve(param1, type, param2);
 		let result = await promise;
 		return result;
@@ -37,7 +37,10 @@ export default class RegistrationModel {
 				data: {
 					value1: `${param1}`,
 					type: type,
-					value2: `${param2}`
+					value2: `${param2}`,
+					value3: `${param3}`,
+					value4: `${param4}`,
+					value5: `${param5}`
 				},
 				success: function(data) {
 					resolve(data);
