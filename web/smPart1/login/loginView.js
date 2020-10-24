@@ -67,7 +67,7 @@ export default class LoginView {
 
 	getRidOfErrorMessage() {
 		if (this.formElement.childNodes.length > 4) {
-			for (let i = this.formElement.childNodes.length - 1, min = 2; i > min; i--) {
+			for (let i = this.formElement.childNodes.length - 1, min = 3; i > min; i--) {
 				this.formElement.removeChild(this.formElement.children[i]);
 			}
 		}
