@@ -33,8 +33,8 @@ export default class RegistrationController {
 	setLocationProperties() {
 		this.usernameElement = [...[...this.parentElement.children][0].children][2];
 		this.emailElement = [...[...this.parentElement.children][1].children][2];
-		this.firstNameElement = [...[...this.parentElement.children][2][0].children][2];
-		this.lastNameElement = [...[...this.parentElement.children][2][1].children][2];
+		this.firstNameElement = [...[...[...this.parentElement.children][2].children][0].children][2];
+		this.lastNameElement = [...[...[...this.parentElement.children][2].children][1].children][2];
 		this.passwordElement = [...[...this.parentElement.children][3].children][2];
 	}
 
