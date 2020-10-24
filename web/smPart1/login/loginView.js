@@ -66,15 +66,11 @@ export default class LoginView {
 	}
 
 	getRidOfErrorMessage() {
-		if (this.formElement.childNodes.length > 3) {
+		if (this.formElement.childNodes.length > 4) {
 			for (let i = this.formElement.childNodes.length - 1, min = 2; i > min; i--) {
 				this.formElement.removeChild(this.formElement.children[i]);
 			}
 		}
-		// if (this.formElement.children[4]) {
-		// 	this.formElement.removeChild(this.formElement.children[4]);
-		// }
-		// this.formElement.removeChild(this.formElement.children[3]);
 	}
 
 	isErrorMessageDisplayed() {
