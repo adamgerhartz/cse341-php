@@ -29,12 +29,15 @@ export default class LoginController {
 		// Check if the input rules are being followed
 		this.usernameElement.addEventListener('keyup', (event)=> {
 			this.username = event.target.value;
-			const isValidUsername = this.isValidUsername(this.username);
-			if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.renderErrorMessage('un');
-			} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
-				this.loginView.getRidOfErrorMessage();
+			if (this.username !== '') {
+				const isValidUsername = this.isValidUsername(this.username);
+				if (!isValidUsername && !this.loginView.isErrorMessageDisplayed()) {
+					this.loginView.renderErrorMessage('un');
+				} else if (isValidUsername && this.loginView.isErrorMessageDisplayed()) {
+					this.loginView.getRidOfErrorMessage();
+				}
 			}
+			
 		});
 
 		this.passwordElement.addEventListener('keydown', ()=> {
