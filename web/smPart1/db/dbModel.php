@@ -56,7 +56,7 @@ class DbModel {
 
         foreach ($rows as $row)
         {
-          reutrn $row['user_id'];
+          echo $row['user_id'];
         }
     }
  }
