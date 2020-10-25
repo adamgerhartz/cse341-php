@@ -35,8 +35,7 @@ $lastName = $rows[0]['last_name'];
 		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
 		$stmt->execute();
 
-		echo '<br>Successfully Saved<br>';
-		echo 'Your "About Me" is saved as:<br>';
+		echo '<br>Successfully Saved. Your "About me" is saved as:<br>';
 
 		$stmt = $db->prepare('SELECT about_me FROM public.user WHERE user_id = :user_id');
 		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
@@ -47,7 +46,9 @@ $lastName = $rows[0]['last_name'];
 		echo '<br>' . $about_me;
 
 	}
-
 ?>
+	<br><br><br>
+	<h2>Nothing else to do?</h2>
+	<p>Feel free to <a href='../login/login.html'>logout</a></p>
 </body>
 </html>
