@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-$db = include('config.php');
+$db = require('config.php');
 
 class DbModel {
 
