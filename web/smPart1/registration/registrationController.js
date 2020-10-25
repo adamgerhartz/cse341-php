@@ -246,7 +246,7 @@ export default class RegistrationController {
 					if (value === 'true') {
 						this.registrationView.renderErrorMessage('inUn');
 					} else {
-						this.registrationModel.addToDB(this.username, 'add', this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
+						this.registrationModel.addToDB(this.username, this.email, this.firstName, this.lastName, this.hashedPassword).then((value) => {
 							if (value === '1') {
 								window.location.href = './registrationConfirmation.php';
 							} else {
