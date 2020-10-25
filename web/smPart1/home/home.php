@@ -19,10 +19,9 @@ $lastName = $rows[0]['last_name'];
 </head>
 <body>
 
-	<h1>Hi <?php echo $firstName . ' ' . $lastName;?></h1>
-	<p>Your profile page is under construction.</p>
+	<h1>Hi <?php echo $firstName . ' ' . $lastName;?>, your profile page is under construction</h1>
 	<p>In the meantime, add an "About Me" to be displayed on your profile page in the future.</p>
-	<label for="about_me">Review of W3Schools:</label>
+	<label for="about_me">About me:</label>
 	<form action="#" method="post">
 		<textarea id='about_me' name='about_me' rows='4' cols='50'></textarea>
 		<input type='submit' name='submit'>
@@ -40,7 +39,7 @@ $lastName = $rows[0]['last_name'];
 		echo 'Your "About Me" is saved as:<br>';
 
 		$stmt = $db->prepare('SELECT about_me FROM public.user WHERE user_id = :user_id');
-		$stmt->bindValue(':user_id', $_SESSION['user_id']. PDO::PARAM_INT);
+		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
 		$stmt->execute();
 		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$about_me = $rows[0]['about_me'];
