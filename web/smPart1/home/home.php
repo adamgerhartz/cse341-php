@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$db = require('config.php');
+$db = require('../db/config.php');
 
 $stmt = $db->prepare('SELECT first_name, last_name FROM public.user WHERE user_id=:id');
 $stmt->bindValue(':id', $_SESSION['user_id'], PDO::PARAM_INT);
