@@ -38,7 +38,6 @@ export default class LoginController {
 		});
 
 		this.passwordElement.addEventListener('keydown', ()=> {
-			this.hashedPassword = '';
 			this.loginView.getRidOfErrorMessage();
 		});
 
