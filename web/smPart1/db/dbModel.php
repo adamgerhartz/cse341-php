@@ -7,7 +7,7 @@ class DbModel {
 
     function queryUsername($username) {
       	global $db;
-      	$stmt = $db->prepare('SELECT username FROM public.user WHERE username=:un');
+      	$stmt = $db->prepare('SELECT user_id, username FROM public.user WHERE username=:un');
 	    $stmt->bindValue(':un', $username, PDO::PARAM_STR);
 	    $stmt->execute();
 	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
