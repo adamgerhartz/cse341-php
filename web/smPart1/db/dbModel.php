@@ -13,6 +13,7 @@ class DbModel {
 	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	    if (count($rows) === 1) {
 	    	print_r('true');
+            $_SESSION['user_id'] = $rows[0]['user_id'];
 	    } else {
 	    	print_r('false');
 	    }
@@ -45,19 +46,6 @@ class DbModel {
         $response = $stmt->execute();
 
     	print_r($response);
-    }
-
-    function queryId($username) {
-        global $db;
-        $stmt = $db->prepare('SELECT user_id FROM public.user WHERE username=:un')
-        $stmt->bindValue(':un', $username, PDO::PARAM_STR);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($rows as $row)
-        {
-          echo $row['user_id'];
-        }
     }
  }
 

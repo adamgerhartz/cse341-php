@@ -15,9 +15,6 @@ switch ($_POST['type']) {
 		$password = $_POST['value1'];
 		$username = $_POST['value2'];
 		$response = $dbModel->queryPassword($password, $username);
-		if ($response) {
-			$_SESSION['id'] = $dbModel->queryId($username);
-		}
 		break;
 	case 'add':
 		$username = $_POST['un'];
