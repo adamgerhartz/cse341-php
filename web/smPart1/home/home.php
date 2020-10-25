@@ -32,7 +32,7 @@ $lastName = $rows[0]['last_name'];
 	if (isset($_POST['submit']) && isset($_POST['about_me'])) {
 		$stmt = $db->prepare('UPDATE public.user SET about_me = :about_me WHERE user_id = :user_id');
 		$stmt->bindValue(':about_me', $_POST['about_me'], PDO::PARAM_STR);
-		$stmt->bindValue(':user_id', $_SESSION['user_id']. PDO::PARAM_INT);
+		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
 		$stmt->execute();
 
 		echo '<br>Successfully Saved<br>';
