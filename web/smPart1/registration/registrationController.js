@@ -241,7 +241,7 @@ export default class RegistrationController {
 			}
 
 			// check for unique username
-			if (!isEmptyUsername) {
+			if (!isEmptyUsername && !this.registrationView.isErrorMessageDisplayed()) {
 				this.registrationModel.existsInDB(this.username, 'username').then((value) => {
 					if (value === 'true') {
 						this.registrationView.renderErrorMessage('inUn');
