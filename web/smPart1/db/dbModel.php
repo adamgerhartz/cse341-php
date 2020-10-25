@@ -46,6 +46,20 @@ class DbModel {
 
     	print_r($response);
     }
+
+    function queryId($username) {
+        global $db;
+        $stmt = $db->prepare('SELECT user_id FROM public.user WHERE username=:un')
+        $stmt->bindValue(':un', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as $row)
+        {
+          print_r($row['user_id']);
+        }
+
+    }
  }
 
 ?>
