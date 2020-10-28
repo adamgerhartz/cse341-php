@@ -13,7 +13,14 @@ class DbModel {
 
         if ($result) {
             $row = $stmt->fetch();
-            echo $row;
+            $firstName = $row['first_name'];
+            $lastName = $row['last_name'];
+            $photo_uri = $row['photo_uri'];
+            $about_me = $row['about_me'];
+            echo $firstName;
+            echo '|' . $lastName;
+            echo '|' . $photo_uri;
+            echo '|' . $about_me;
         }
     }
 
