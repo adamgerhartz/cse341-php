@@ -1,54 +1,32 @@
 <?php
 session_start();
 
+require('homepage.php');
+
 $db = require('../db/config.php');
 
-$stmt = $db->prepare('SELECT first_name, last_name FROM public.user WHERE user_id=:id');
-$stmt->bindValue(':id', $_SESSION['user_id'], PDO::PARAM_INT);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$firstName = $rows[0]['first_name'];
-$lastName = $rows[0]['last_name'];
+
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home Page</title>
+	<meta charset='UTF-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="home.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Homepage</title>
 </head>
 <body>
-
-	<h1>Hi <?php echo $firstName . ' ' . $lastName;?>, your profile page is under construction</h1>
-	<p>In the meantime, add an "About Me" to be displayed on your profile page in the future.</p>
-	<label for="about_me">About me:</label>
-	<form action="#" method="post">
-		<textarea id='about_me' name='about_me' rows='4' cols='50'></textarea>
-		<input type='submit' name='submit'>
-	</form>
-
-<?php
-
-	if (isset($_POST['submit']) && isset($_POST['about_me'])) {
-		$stmt = $db->prepare('UPDATE public.user SET about_me = :about_me WHERE user_id = :user_id');
-		$stmt->bindValue(':about_me', $_POST['about_me'], PDO::PARAM_STR);
-		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-		$stmt->execute();
-
-		echo '<br>Successfully Saved. Your "About me" is saved as:<br>';
-
-		$stmt = $db->prepare('SELECT about_me FROM public.user WHERE user_id = :user_id');
-		$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-		$stmt->execute();
-		$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		$about_me = $rows[0]['about_me'];
-
-		echo '<br>' . $about_me;
-
-	}
-?>
-	<br><br><br>
-	<h2>Nothing else to do?</h2>
-	<p>Feel free to <a href='../login/login.html'>logout</a></p>
+	<div id="main-page">
+		<!-- <div class="row" id="row1"></div>
+		<div class="row" id="row2"></div>
+		<div class="row" id="row3"></div>
+		<div class="row" id="row4"></div> -->
+	</div>
 </body>
 </html>
