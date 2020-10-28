@@ -11,7 +11,7 @@ class HomeModel {
 
     function fetchHomeData() {
         //$firstName = $this->dbModel->retrieveFirstName($this->sessionId);
-        return $sessionId;
+        print_r($sessionId);
     }
 }
 
