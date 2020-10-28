@@ -12,17 +12,8 @@ class DbModel {
         $result = $stmt->execute();
 
         if ($result) {
-            $row = $stmt->fetch();
-            $data = [];
-            $firstName = $row['first_name'];
-            $lastName = $row['last_name'];
-            $photoUri = $row['photo_uri'];
-            $about_me = $row['about_me'];
-            array_push($data, $firstName);
-            array_push($data, $lastName);
-            array_push($data, $photoUri);
-            array_push($data, $about_me);
-            echo $data;
+            $row = $stmt->fetch_array();
+            echo $row;
         }
     }
 
