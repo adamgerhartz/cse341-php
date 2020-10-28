@@ -10,8 +10,8 @@ class HomeModel {
     }
 
     function fetchHomeData() {
-        //$firstName = $this->dbModel->retrieveFirstName($this->sessionId);
-        print_r('hello world');
+        $firstName = $this->dbModel->retrieveFirstName($this->sessionId);
+        echo $firstName;
     }
 }
 
