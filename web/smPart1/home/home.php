@@ -3,10 +3,6 @@ session_start();
 
 require('homepage.php');
 
-$db = require('../db/config.php');
-
-
-
 ?>
 
 <!DOCTYPE html>
