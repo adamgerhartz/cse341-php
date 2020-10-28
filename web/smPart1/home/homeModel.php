@@ -11,7 +11,7 @@ class HomeModel {
 
     function fetchProfileData() {
         $data = $this->dbModel->retrieveFirstName($this->sessionId);
-        echo $data[0];
+        echo $data['first_name'];
     }
 }
 
