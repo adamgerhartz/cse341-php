@@ -13,7 +13,7 @@ class DbModel {
 
         if ($result) {
             $row = $stmt->fetch();
-            echo $row;
+            echo $row['photo_uri'];
         }
     }
 
