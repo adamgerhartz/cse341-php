@@ -10,8 +10,9 @@ class HomeModel {
     }
 
     function fetchProfileData() {
-        $data = $this->dbModel->retrieveFirstName($this->sessionId);
-        echo $data;
+        $data = [];
+        array_push($data, $this->dbModel->retrieveFirstName($this->sessionId));
+        echo $data[0];
     }
 }
 
