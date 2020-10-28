@@ -13,7 +13,7 @@ class HomeController {
     function showHomepage() {
         //$data = $this->homeModel->fetchHomeData();
         $data = 'Hello World';
-        var_dump($data);
+        echo "<p id='data'>" . $data . "</p>";
         //$this->homeView->renderPage($data);
     }
 }
