@@ -11,10 +11,8 @@ class HomeController {
     }
 
     function showHomepage() {
-        //$data = $this->homeModel->fetchHomeData();
-        $data = 'Hello World';
-        echo "<p id='data'>" . $data . "</p>";
-        //$this->homeView->renderPage($data);
+        $data = $this->homeModel->fetchHomeData();
+        $this->homeView->renderPage($data);
     }
 }
 
