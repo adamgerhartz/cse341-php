@@ -12,7 +12,7 @@ class DbModel {
         $result = $stmt->execute();
 
         if ($result) {
-            $row = $stmt->fetch_array();
+            $row = $stmt->fetch();
             echo $row;
         }
     }
