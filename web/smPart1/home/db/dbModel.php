@@ -10,11 +10,11 @@ class DbModel {
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $result = $stmt->execute();
 
-        if ($result) {
-            $row = $stmt->fetch();
-            $firstName = $row['first_name'];
-            echo $firstName;
-        }
+        // if ($result) {
+        //     $row = $stmt->fetch();
+        //     $firstName = $row['first_name'];
+        //     echo $firstName;
+        // }
     }
 
  }
