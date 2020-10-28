@@ -11,7 +11,7 @@ class HomeController {
     }
 
     function showHomepage() {
-        $data = $this->homeModel->fetchHomeData();
+        $data = $this->homeModel->fetchProfileData();
         $this->homeView->renderPage($data);
     }
 }
