@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo '<p>' . $_SESSION['user_id'] . '</p>';
 require('homepage.php');
 
 ?>

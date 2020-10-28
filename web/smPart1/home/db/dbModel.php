@@ -6,16 +6,15 @@ $db = require('../db/config.php');
 class DbModel {
 
     function retrieveFirstName($id) {
-        echo $id;
-        // $stmt = $db->prepare('SELECT first_name FROM public.user WHERE user_id=:id');
-        // $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        // $result = $stmt->execute();
+        $stmt = $db->prepare('SELECT first_name FROM public.user WHERE user_id=:id');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $result = $stmt->execute();
 
-        // if ($result) {
-        //     $row = $stmt->fetch();
-        //     $firstName = $row['first_name'];
-        //     echo $firstName;
-        // }
+        if ($result) {
+            $row = $stmt->fetch();
+            $firstName = $row['first_name'];
+            echo $firstName;
+        }
     }
 
  }
