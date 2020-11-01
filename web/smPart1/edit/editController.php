@@ -13,6 +13,11 @@ class EditController {
     function showEditPage() {
         $data = $this->editModel->fetchProfileData();
         $this->editView->renderPage($data);
+        $this->addEventListeners();
+    }
+
+    function addEventListeners() {
+        
     }
 }
 
