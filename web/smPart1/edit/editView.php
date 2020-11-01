@@ -24,7 +24,7 @@ class EditView {
         echo '</div>'; // end row 1
         
         // Start Form
-        echo '<form action="../uploads/upload.php" class="md-form" name="editForm" method="post">';
+        echo '<form action="../home/home.php" class="md-form" name="editForm" method="post">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
@@ -66,7 +66,12 @@ class EditView {
               <input type="text" class="form-control" id="last_name" placeholder="' . $data['last_name'] . '">';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 5
+        echo '<hr>';
 
+        // row 6
+        echo '<div class="row" id="row6">';
+        echo '<div class="col-sm-1"></div>';
+        echo '<input type="submit" class="btn btn-primary" value="Save">';
         echo '</form>'; // End form
         
         echo '</div>'; // end container fluid
