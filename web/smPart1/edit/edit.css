@@ -13,6 +13,10 @@
 	letter-spacing: 3px;
 }
 
+#file {
+	pointer-events: none;
+}
+
 a, #foot_text {
 	padding: 5px;
 	color: white;

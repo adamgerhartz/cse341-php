@@ -38,7 +38,8 @@ class EditView {
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
         echo '<h2>Upload a photo:</h2>';
-        echo '<input type="file" name="file">';
+        echo '<input type="file" id="file" tabindex="-1" name="file">';
+        echo 'This feature is currently disabled and under construction';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 3
         echo '<hr>';

@@ -12,7 +12,7 @@ class HomeView {
         echo '<div class="row" id="row1">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col-sm-1">';
-        echo '<a id="target" href="#">Home</a>';
+        echo '<a id="target" href="">Home</a>';
         echo '</div>'; // end col-sm-1
         echo '<div class="col-sm-1">';
         echo '<a href="../edit/edit-profile.php">Edit</a>';
