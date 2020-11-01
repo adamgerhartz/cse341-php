@@ -39,7 +39,7 @@ class EditView {
         echo '<div class="col" id="text">';
         echo '<h2>Upload a photo:</h2>';
         echo '<input type="file" id="file" tabindex="-1" name="file">';
-        echo 'This feature is currently disabled and under construction';
+        echo '<span id="msg-disable">This feature is currently disabled and under construction</span>';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 3
         echo '<hr>';
