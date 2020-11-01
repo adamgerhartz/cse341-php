@@ -47,12 +47,10 @@ class EditView {
         // Row 4
         echo '<div class="row" id="row4">';
         echo '<div class="col-sm-1"></div>';
-        echo '<div class="form-group">';
         echo '<div class="col" id="text">';
         echo '<h2>About me:</h2>';
         echo '<textarea name="about-me" id="about-me" class="form-control">' . ((isset($data['about_me'])) ? $data['about_me'] : $abtMeDefault) . '</textarea>';
         echo '</div>'; // end text container
-        echo '</div>';
 		echo '</div>'; // end row 4
         echo '<hr>';
 
