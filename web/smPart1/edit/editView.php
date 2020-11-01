@@ -38,7 +38,7 @@ class EditView {
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
         echo '<h2>Upload a photo:</h2>';
-        echo '<input type="file" id="file" tabindex="-1" name="file">';
+        echo '<input type="file" id="file" tabindex="-1" name="file" aria-describedby="msg-disable">';
         echo '<small id="msg-disable" class="form-text text-muted">This feature is currently disabled and under construction.</small>';
         //echo '<span id="msg-disable">This feature is currently disabled and under construction</span>';
         echo '</div>'; // end text container
@@ -59,8 +59,9 @@ class EditView {
         echo '<div class="row" id="row5">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
-        echo '<h2>Update your name</h2>';
-        echo '<br>First: <input type="text" name="first_name">';
+        echo '<h2>Update your name:</h2>';
+        echo '<label for="first_name">Email address</label>
+              <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" placeholder="Enter email">';
         echo 'Last: <input type="text" name="last_name">';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 5
