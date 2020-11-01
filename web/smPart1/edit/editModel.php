@@ -1,8 +1,8 @@
 <?php
 session_start();
-require('db/dbModel.php');
+require('../home/db/dbModel.php');
 
-class HomeModel {
+class EditModel {
     function __construct() {
         $this->dbModel = new DbModel;
         $this->response = '';

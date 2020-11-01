@@ -13,14 +13,12 @@ class DbModel {
 
         if ($result) {
             $row = $stmt->fetch();
-            $firstName = $row['first_name'];
-            $lastName = $row['last_name'];
-            $photo_uri = $row['photo_uri'];
-            $about_me = $row['about_me'];
-            echo $firstName;
-            echo '|' . $lastName;
-            echo '|' . $photo_uri;
-            echo '|' . $about_me;
+            $user = new stdClass();
+            $user->first_name = $row['first_name'];
+            $user->last_name = $row['last_name'];
+            $user->photo_uri = $row['photo_uri'];
+            $user->about_me = $row['about_me'];
+            return json_encode($user);
         }
     }
 
