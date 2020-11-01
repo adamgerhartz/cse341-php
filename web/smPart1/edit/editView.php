@@ -60,9 +60,10 @@ class EditView {
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
         echo '<h2>Update your name:</h2>';
-        echo '<label for="first_name">Email address</label>
-              <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" placeholder="Enter email">';
-        echo 'Last: <input type="text" name="last_name">';
+        echo '<label for="first_name">First Name</label>
+              <input type="text" class="form-control" id="first_name" placeholder="' . $data['first_name'] . '">';
+        echo '<label for="last_name">Last Name</label>
+              <input type="text" class="form-control" id="last_name" placeholder="' . $data['last_name'] . '">';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 5
 
