@@ -14,7 +14,7 @@
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
     
-    echo ltrim(strlen($firstName)) . ' ' . rtrim(strlen($lastName));
+    echo strlen(ltrim($firstName)) . ' ' . strlen(rtrim($lastName));
     if ($firstName === '' || $lastName === '') {
         $isValid = isValid($firstName, $lastName);
         if (!$isValid) {
