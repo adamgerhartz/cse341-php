@@ -10,11 +10,81 @@
 <body>
 
 <?php
+
+    $firstName = $_POST['first_name'];
+    $lastName  = $_POST['last_name'];
     
-    echo $_POST['first_name'] . ' ' . $_POST['last_name'];
-    if ($_POST['first_name'] === '' || $_POST['last_name'] === '') {
-        echo 'Function Called';
-        header('Location: edit-profile.php');
+    echo $firstName . ' ' . $lastName;
+    if ($firstName === '' || $lastName === '') {
+        $isValid = isValid($firstName, $lastName);
+        if (!$isValid) {
+            header('Location: edit-profile.php');
+        }
+    }
+
+    function isValid($first, $last) {
+        if (isEmptyName($first, $last)) {
+            return false;
+        }
+        if (isSpaceFront($first, $last)) {
+            return false;
+        }
+        if (lengthIsHigh($first, $last)) {
+            return false;
+        }
+        if (isInvalidName($first, $last)) {
+            return false;
+        }
+        return true;
+    }
+
+    function isEmptyName($f, $l) {
+        if ($f === '') {
+            $_SESSION['error-on'] = 'first';
+            return true;
+        }
+        if ($l === '') {
+            $_SESSION['error-on'] = 'last';
+            return true;
+        }
+        return false;
+    }
+
+    function isSpaceFront($f, $l) {
+        if ($f[0] === ' ') {
+            $_SESSION['error-on'] = 'first';
+            return true;
+        }
+        if ($l[0] === ' ') {
+            $_SESSION['error-on'] = 'last';
+            return true;
+        }
+        return false;
+    }
+
+    function lengthIsHigh($f, $l) {
+        if (count($f) > 100) {
+            $_SESSION['error-on'] = 'first';
+            return true;
+        }
+        if (count($l) > 100) {
+            $_SESSION['error-on'] = 'last';
+            return true;
+        }
+        return false;
+    }
+
+    function isInvalidName($f, $l) {
+        $exp = "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u";
+        if (preg_match($exp, $f) !== 1) {
+            $_SESSION['error-on'] = 'first';
+            return true;
+        }
+        if (preg_match($exp, $l) !== 1) {
+            $_SESSION['error-on'] = 'last';
+            return true;
+        }
+        return false;
     }
 ?>
 
