@@ -21,8 +21,9 @@ class HomeView {
         echo '<a href="../login/login.html">Logout</a>';
         echo '</div>'; // end col-sm-5
         echo '</div>'; // end row 1
-        
+        echo '</div>'; // end container fluid
 
+        echo '<div class="container">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="d-flex flex-wrap justify-content-center align-items-center">';
@@ -39,8 +40,9 @@ class HomeView {
         
 		echo '</div>'; // end row 2
         echo '<hr>';
+        echo '</div>'; // end container
         
-        echo '</div>'; // end container fluid
+        
     }
 }
 
