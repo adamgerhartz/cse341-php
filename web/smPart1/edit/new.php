@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    require('db/dbModel.php');
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +14,15 @@
     $_SESSION['error'] = '';
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
-    $about_me = htmlspecialchars($_POST['about-me']);
+    $about_me = $_POST['about-me'];
     
     // security
     $firstName = htmlspecialchars($firstName);
     $lastName = htmlspecialchars($lastName);
+    $about_me = htmlspecialchars($about_me);
     //trim left and right
+    $about_me = ltrim($about_me);
+    $about_me = rtrim($about_me);
     $firstName = ltrim($firstName);
     $firstName = rtrim($firstName);
     $lastName = ltrim($lastName);
