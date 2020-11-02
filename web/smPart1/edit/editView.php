@@ -27,6 +27,9 @@ class EditView {
         echo '<form action="new.php" class="md-form" name="editForm" method="post">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
+        if ($_SESSION['error'] !== '') {
+            echo $_SESSION['error'];
+        }
         echo '<div class="col" id="text">';
         echo '<h1><strong>Edit your profile...</strong></h1>';
         echo '</div>'; // end text container
@@ -77,7 +80,7 @@ class EditView {
         echo '</div>'; // end container fluid
 
 
-        echo $_SESSION['error'];
+        
 
     }
 

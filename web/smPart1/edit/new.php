@@ -50,6 +50,7 @@
             $_SESSION['error'] = 'Error: Last name is empty';
             return true;
         }
+        $_SESSION['error'] = '';
         return false;
     }
 
@@ -62,6 +63,7 @@
             $_SESSION['error'] = 'Error: Last name should not exceed 100 characters';
             return true;
         }
+        $_SESSION['error'] = '';
         return false;
     }
 
@@ -75,6 +77,7 @@
             $_SESSION['error'] = 'Error: Last name is invalid';
             return true;
         }
+        $_SESSION['error'] = '';
         return false;
     }
 ?>
