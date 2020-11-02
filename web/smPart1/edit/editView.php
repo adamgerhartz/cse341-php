@@ -30,7 +30,7 @@ class EditView {
         echo '<div class="col" id="text">';
         echo '<h1><strong>Edit your profile...</strong></h1>';
         if ($_SESSION['error'] !== '') {
-            echo '<small id="msg-disable" class="form-text text-muted">* ' . $_SESSION['error'] . '</small>';
+            echo '<small id="msg-disable" class="form-text text-muted">' . $_SESSION['error'] . '</small>';
         }
         echo '</div>'; // end text container
         echo '</div>'; // end row 2
