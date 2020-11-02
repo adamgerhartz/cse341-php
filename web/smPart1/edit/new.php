@@ -13,7 +13,7 @@
     $_SESSION['error'] = '';
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
-    $about_me = htmlspecialchars($_POST['about_me']);
+    $about_me = htmlspecialchars($_POST['about-me']);
     
     // security
     $firstName = htmlspecialchars($firstName);
@@ -86,7 +86,6 @@
     function sendToDb($first, $last, $abtMe) {
         $dbModel = new DbModel;
         $response = $dbModel->editNameAndAboutMe($_SESSION['user_id'], $first, $last, $abtMe);
-        echo $repsonse;
         if ($response === '1') {
             header('Location: ../home/home.php');
         } else {
