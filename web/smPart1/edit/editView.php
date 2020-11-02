@@ -61,9 +61,9 @@ class EditView {
         echo '<div class="col" id="text">';
         echo '<h2>Update your name:</h2>';
         echo '<label for="first_name">First Name</label>
-              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="' . $data['first_name'] . '">';
+              <input type="text" class="form-control" name="first_name" id="first_name" value="' . $data['first_name'] . '">';
         echo '<label for="last_name">Last Name</label>
-              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="' . $data['last_name'] . '">';
+              <input type="text" class="form-control" name="last_name" id="last_name" value="' . $data['last_name'] . '">';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 5
         echo '<hr>';
