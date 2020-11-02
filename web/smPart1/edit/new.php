@@ -43,11 +43,11 @@
 
     function isEmptyName($f, $l) {
         if ($f === '') {
-            $_SESSION['error'] = 'Error: First name is empty';
+            $_SESSION['error'] = '* Error: First name is empty';
             return true;
         }
         if ($l === '') {
-            $_SESSION['error'] = 'Error: Last name is empty';
+            $_SESSION['error'] = '* Error: Last name is empty';
             return true;
         }
         $_SESSION['error'] = '';
@@ -56,11 +56,11 @@
 
     function lengthIsHigh($f, $l) {
         if (strlen($f) > 100) {
-            $_SESSION['error'] = 'Error: First name should not exceed 100 characters';
+            $_SESSION['error'] = '* Error: First name should not exceed 100 characters';
             return true;
         }
         if (strlen($l) > 100) {
-            $_SESSION['error'] = 'Error: Last name should not exceed 100 characters';
+            $_SESSION['error'] = '* Error: Last name should not exceed 100 characters';
             return true;
         }
         $_SESSION['error'] = '';
@@ -70,11 +70,11 @@
     function isInvalidName($f, $l) {
         $exp = "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u";
         if (preg_match($exp, $f) !== 1) {
-            $_SESSION['error'] = 'Error: First name is invalid';
+            $_SESSION['error'] = '* Error: First name is invalid';
             return true;
         }
         if (preg_match($exp, $l) !== 1) {
-            $_SESSION['error'] = 'Error: Last name is invalid';
+            $_SESSION['error'] = '* Error: Last name is invalid';
             return true;
         }
         $_SESSION['error'] = '';
