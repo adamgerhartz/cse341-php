@@ -14,7 +14,7 @@
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
     
-    echo $firstName . ' ' . $lastName;
+    echo count($firstName) . ' ' . count($lastName);
     if ($firstName === '' || $lastName === '') {
         $isValid = isValid($firstName, $lastName);
         if (!$isValid) {
