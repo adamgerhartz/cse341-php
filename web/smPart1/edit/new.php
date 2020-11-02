@@ -90,10 +90,10 @@
     function sendToDb($first, $last, $abtMe) {
         $dbModel = new DbModel;
         $response = $dbModel->editNameAndAboutMe($_SESSION['user_id'], $first, $last, $abtMe);
-        if ($response === '1') {
+        if ($response) {
             header('Location: ../home/home.php');
         } else {
-            $_SESSION['error'] = getType($response) . 'Response: ' . $response;
+            $_SESSION['error'] = '* Error: Profile information not updated.';
             header('Location: edit-profile.php');
         }
     }
