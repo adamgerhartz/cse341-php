@@ -15,6 +15,9 @@
     $lastName  = $_POST['last_name'];
     
     echo strlen(ltrim($firstName)) . ' ' . strlen(rtrim($lastName));
+    // security
+    $firstName = htmlspecialchars($firstName);
+    $lastName = htmlspecialchars($lastName);
     //trim left and right
     $firstName = ltrim($firstName);
     $firstName = rtrim($firstName);
