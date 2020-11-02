@@ -14,7 +14,7 @@
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
     
-    echo count($firstName) . ' ' . count($lastName);
+    echo strlen($firstName) . ' ' . strlen($lastName);
     if ($firstName === '' || $lastName === '') {
         $isValid = isValid($firstName, $lastName);
         if (!$isValid) {
@@ -65,11 +65,11 @@
     }
 
     function lengthIsHigh($f, $l) {
-        if (count($f) > 100) {
+        if (strlen($f) > 100) {
             $_SESSION['error'] = 'Error: First name should not exceed 100 characters';
             return true;
         }
-        if (count($l) > 100) {
+        if (strlen($l) > 100) {
             $_SESSION['error'] = 'Error: Last name should not exceed 100 characters';
             return true;
         }
