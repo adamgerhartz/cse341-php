@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require('db/dbModel.php');
+    require('../db/dbModel.php');
 ?>
 
 <!DOCTYPE html>
