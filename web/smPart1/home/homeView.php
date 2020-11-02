@@ -25,7 +25,7 @@ class HomeView {
 
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
-        echo '<div class="d-flex flex-wrap justify-content-start align-items-center">';
+        echo '<div class="d-flex flex-wrap justify-content-center align-items-center">';
         echo '<div id="profile_back" class="float-left">';
         echo '<img id="profile_picture" src="' . ((isset($data['photo_uri'])) ? $data['photo_uri'] : $default) . '" alt="Profile picture of ' . $data['first_name'] . ' ' . $data['last_name'] . '">';
         echo '</div>'; // end profile_back
