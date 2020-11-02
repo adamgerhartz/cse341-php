@@ -16,7 +16,13 @@
     
     echo strlen(ltrim($firstName)) . ' ' . strlen(rtrim($lastName));
     if ($firstName === '' || $lastName === '') {
+        //trim left and right
+        $firstName = ltrim($firstName);
+        $firstName = rtrim($firstName);
+        $lastName = ltrim($lastName);
+        $lastName = rtrim($lastName);
         $isValid = isValid($firstName, $lastName);
+        
         if (!$isValid) {
             header('Location: edit-profile.php');
         }
@@ -24,9 +30,6 @@
 
     function isValid($first, $last) {
         if (isEmptyName($first, $last)) {
-            return false;
-        }
-        if (isSpaceFront($first, $last)) {
             return false;
         }
         if (lengthIsHigh($first, $last)) {
@@ -45,20 +48,6 @@
         }
         if ($l === '') {
             $_SESSION['error'] = 'Error: Last name is empty';
-            return true;
-        }
-        return false;
-    }
-
-    function isSpaceFront($f, $l) {
-        $fRest = substr($f, 0, 1);
-        if ($fRest === ' ') {
-            $_SESSION['error'] = 'Error: First name should not start with a whitespace';
-            return true;
-        }
-        $lRest = substr($l, 0, 1);
-        if ($lRest === ' ') {
-            $_SESSION['error'] = 'Error: Last name should not start with a whitespace';
             return true;
         }
         return false;
