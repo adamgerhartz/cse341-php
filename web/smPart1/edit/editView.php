@@ -76,15 +76,6 @@ class EditView {
         
         echo '</div>'; // end container fluid
 
-        // TODO: add $file 
-        // $firstName = $_POST['first_name'];
-        // $lastName = $_POST['last_name'];
-        // $about_me = $_POST['about_me'];
-
-        if (isset($_POST['submit'])) {
-            echo '<script>console.log("YESSS")</script>';
-        }
-
     }
 
 }

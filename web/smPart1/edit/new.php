@@ -9,7 +9,11 @@
 </head>
 <body>
 
-    
+<?php
+    if (!isset($_POST['first_name']) || !isset($_POST['last_name'])) {
+        header('Location: edit-profile.php');
+    }
+?>
 
 </body>
 </html>
