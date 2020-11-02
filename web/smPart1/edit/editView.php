@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['error'] = '';
 
 class EditView {
     function __construct($parentId) {

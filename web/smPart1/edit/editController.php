@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['error'] = '';
 require('editModel.php');
 require('editView.php');
 
