@@ -15,17 +15,14 @@
     $lastName  = $_POST['last_name'];
     
     echo strlen(ltrim($firstName)) . ' ' . strlen(rtrim($lastName));
-    if ($firstName === '' || $lastName === '') {
-        //trim left and right
-        $firstName = ltrim($firstName);
-        $firstName = rtrim($firstName);
-        $lastName = ltrim($lastName);
-        $lastName = rtrim($lastName);
-        $isValid = isValid($firstName, $lastName);
-        
-        if (!$isValid) {
-            header('Location: edit-profile.php');
-        }
+    //trim left and right
+    $firstName = ltrim($firstName);
+    $firstName = rtrim($firstName);
+    $lastName = ltrim($lastName);
+    $lastName = rtrim($lastName);
+    $isValid = isValid($firstName, $lastName); 
+    if (!$isValid) {
+        header('Location: edit-profile.php');
     }
 
     function isValid($first, $last) {
