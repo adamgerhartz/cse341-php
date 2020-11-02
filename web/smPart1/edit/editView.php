@@ -29,7 +29,7 @@ class EditView {
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
         echo '<h1><strong>Edit your profile...</strong></h1>';
-        if ($_SESSION['error'] !== '') {
+        if ($_SESSION['error'] !== '' || (!isset($_SESSION['error']))) {
             echo '<small id="msg-disable" class="form-text text-muted">* ' . $_SESSION['error'] . '</small>';
         }
         echo '</div>'; // end text container
