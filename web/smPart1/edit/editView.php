@@ -52,8 +52,8 @@ class EditView {
         echo '<div class="row" id="row4">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
-        echo '<h2>About me:</h2>';
-        echo '<textarea name="about-me" id="about-me" class="form-control">' . ((isset($data['about_me'])) ? $data['about_me'] : $abtMeDefault) . '</textarea>';
+        echo '<h2>Write about me:</h2>';
+        echo '<textarea name="about-me" id="about-me" autocomplete="off" class="form-control">' . ((isset($data['about_me'])) ? $data['about_me'] : $abtMeDefault) . '</textarea>';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 4
         echo '<hr>';
@@ -64,9 +64,9 @@ class EditView {
         echo '<div class="col" id="text">';
         echo '<h2>Update your name:</h2>';
         echo '<label for="first_name">First Name</label>
-              <input type="text" class="form-control" name="first_name" id="first_name" value="' . $data['first_name'] . '">';
+              <input type="text" class="form-control" name="first_name" autocomplete="off" id="first_name" value="' . $data['first_name'] . '">';
         echo '<label for="last_name">Last Name</label>
-              <input type="text" class="form-control" name="last_name" id="last_name" value="' . $data['last_name'] . '">';
+              <input type="text" class="form-control" name="last_name" autocomplete="off" id="last_name" value="' . $data['last_name'] . '">';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 5
         echo '<hr>';
