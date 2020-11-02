@@ -39,7 +39,7 @@ class HomeView {
         echo '</div>'; // end text
         
 		echo '</div>'; // end row 2
-        echo '<hr>';
+        echo '<hr class="container-fluid">';
         echo '</div>'; // end container
         
         
