@@ -25,13 +25,13 @@ class HomeView {
 
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
-        echo '<div class="d-flex justify-content-start align-items-start clearfix">';
+        echo '<div class="d-flex justify-content-start align-items-center">';
         echo '<div id="profile_back" class="float-left">';
         echo '<img id="profile_picture" src="' . ((isset($data['photo_uri'])) ? $data['photo_uri'] : $default) . '" alt="Profile picture of ' . $data['first_name'] . ' ' . $data['last_name'] . '">';
         echo '</div>'; // end profile_back
         
         echo '<div class="col-sm-1"></div>';
-        echo '<div class="col" id="text">';
+        echo '<div class="col float-left" id="text">';
 		echo '<h1><strong>' . $data['first_name'] . ' ' . $data['last_name'] . '</strong></h1>';
         echo '<h6 id="author">' . $data['about_me'] . '</h6>';
         echo '</div>'; // end align middle
