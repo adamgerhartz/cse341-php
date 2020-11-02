@@ -76,6 +76,9 @@ class EditView {
         
         echo '</div>'; // end container fluid
 
+
+        echo $_SESSION['error'];
+
     }
 
 }

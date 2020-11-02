@@ -40,11 +40,11 @@
 
     function isEmptyName($f, $l) {
         if ($f === '') {
-            $_SESSION['error-on'] = 'first';
+            $_SESSION['error'] = 'Error: First name is empty';
             return true;
         }
         if ($l === '') {
-            $_SESSION['error-on'] = 'last';
+            $_SESSION['error'] = 'Error: Last name is empty';
             return true;
         }
         return false;
@@ -52,11 +52,11 @@
 
     function isSpaceFront($f, $l) {
         if ($f[0] === ' ') {
-            $_SESSION['error-on'] = 'first';
+            $_SESSION['error'] = 'Error: First name should not start with a whitespace';
             return true;
         }
         if ($l[0] === ' ') {
-            $_SESSION['error-on'] = 'last';
+            $_SESSION['error'] = 'Error: Last name should not start with a whitespace';
             return true;
         }
         return false;
@@ -64,11 +64,11 @@
 
     function lengthIsHigh($f, $l) {
         if (count($f) > 100) {
-            $_SESSION['error-on'] = 'first';
+            $_SESSION['error'] = 'Error: First name should not exceed 100 characters';
             return true;
         }
         if (count($l) > 100) {
-            $_SESSION['error-on'] = 'last';
+            $_SESSION['error'] = 'Error: Last name should not exceed 100 characters';
             return true;
         }
         return false;
@@ -77,11 +77,11 @@
     function isInvalidName($f, $l) {
         $exp = "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u";
         if (preg_match($exp, $f) !== 1) {
-            $_SESSION['error-on'] = 'first';
+            $_SESSION['error'] = 'Error: First name is invalid';
             return true;
         }
         if (preg_match($exp, $l) !== 1) {
-            $_SESSION['error-on'] = 'last';
+            $_SESSION['error'] = 'Error: Last name is invalid';
             return true;
         }
         return false;
