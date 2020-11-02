@@ -30,7 +30,8 @@ a:hover {
 
 #row2 {
     padding-top: 50px;
-    padding-bottom: 50px;
+	padding-bottom: 50px;
+	width: 85%;
 }
 
 #row3 {
