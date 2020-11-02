@@ -51,11 +51,13 @@
     }
 
     function isSpaceFront($f, $l) {
-        if ($f[0] === ' ') {
+        $fRest = substr($f, -(count($f)), 1);
+        if ($fRest === ' ') {
             $_SESSION['error'] = 'Error: First name should not start with a whitespace';
             return true;
         }
-        if ($l[0] === ' ') {
+        $lRest = substr($l, -(count($l)), 1);
+        if ($lRest === ' ') {
             $_SESSION['error'] = 'Error: Last name should not start with a whitespace';
             return true;
         }
