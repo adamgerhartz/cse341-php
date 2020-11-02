@@ -24,7 +24,7 @@ class EditView {
         echo '</div>'; // end row 1
         
         // Start Form
-        echo '<form action="../home/home.php" class="md-form" name="editForm" method="post">';
+        echo '<form action="" class="md-form" name="editForm" method="post">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
         echo '<div class="col" id="text">';
@@ -39,7 +39,7 @@ class EditView {
         echo '<div class="col" id="text">';
         echo '<h2>Upload a photo:</h2>';
         echo '<input type="file" id="file" tabindex="-1" name="file" aria-describedby="msg-disable">';
-        echo '<small id="msg-disable" class="form-text text-muted">This feature is currently disabled and under construction.</small>';
+        echo '<small id="msg-disable" class="form-text text-muted">* This feature is currently disabled and under construction.</small>';
         //echo '<span id="msg-disable">This feature is currently disabled and under construction</span>';
         echo '</div>'; // end text container
 		echo '</div>'; // end row 3
@@ -71,7 +71,7 @@ class EditView {
         // row 6
         echo '<div class="row" id="row6">';
         echo '<div class="col-sm-1"></div>';
-        echo '<input type="submit" class="btn btn-primary" value="Save">';
+        echo '<input type="submit" class="btn btn-primary" id="submit" value="Save">';
         echo '</form>'; // End form
         
         echo '</div>'; // end container fluid

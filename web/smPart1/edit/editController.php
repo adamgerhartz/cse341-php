@@ -17,7 +17,14 @@ class EditController {
     }
 
     function addEventListeners() {
+        echo '<script>  
+
+                const submit = document.getElementbById("submit")
+                submit.addEventLister("click", ()=> {
+                   <p>Hello</p>;
+                });
         
+              </script>';
     }
 }
 
