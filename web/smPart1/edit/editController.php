@@ -20,7 +20,8 @@ class EditController {
         echo '<script>  
 
                 const submit = document.getElementbById("submit")
-                submit.addEventLister("click", ()=> {
+                submit.addEventLister("click", (event)=> {
+                   event.preventDefault();
                    <p>Hello</p>;
                 });
         
