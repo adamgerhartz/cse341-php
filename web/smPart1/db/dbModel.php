@@ -46,7 +46,20 @@ class DbModel {
         $response = $stmt->execute();
 
     	print_r($response);
-    }
+	}
+	
+	function editNameAndAboutMe($id, $first, $last, $about_me) {
+		global $db;
+		$stmt = $db->prepare("UPDATE public.user SET first_name=:first_name, last_name=:last_name, about_me=:about_me, last_update_date=NOW() WHERE user_id=:id;");
+		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+		$stmt->bindValue(':first_name', $first, PDO::PARAM_STR);
+		$stmt->bindValue(':last_name', $last, PDO::PARAM_STR);
+		$stmt->bindValue(':about_me', $about_me, PDO::PARAM_STR);
+
+		$response = $stmt->execute();
+
+		print_r($response);
+	}
  }
 
 ?>

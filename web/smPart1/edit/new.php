@@ -13,8 +13,8 @@
     $_SESSION['error'] = '';
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
+    $about_me = htmlspecialchars($_POST['about_me']);
     
-    echo strlen(ltrim($firstName)) . ' ' . strlen(rtrim($lastName));
     // security
     $firstName = htmlspecialchars($firstName);
     $lastName = htmlspecialchars($lastName);
@@ -26,6 +26,8 @@
     $isValid = isValid($firstName, $lastName); 
     if (!$isValid) {
         header('Location: edit-profile.php');
+    } else {
+        sendToDb($firstName, $lastName, $about_me);
     }
 
     function isValid($first, $last) {
@@ -79,6 +81,17 @@
         }
         $_SESSION['error'] = '';
         return false;
+    }
+
+    function sendToDb($first, $last, $abtMe) {
+        $dbModel = new DbModel;
+        $response = $dbModel->editNameAndAboutMe($_SESSION['user_id'], $first, $last, $abtMe);
+        if ($response === '1') {
+            header('Location: ../home/home.php');
+        } else {
+            $_SESSION['error'] = '* Error: Profile information not updated.';
+            header('Location: edit-profile.php');
+        }
     }
 ?>
 

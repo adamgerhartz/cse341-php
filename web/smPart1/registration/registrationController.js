@@ -250,7 +250,6 @@ export default class RegistrationController {
 							if (value === '1') {
 								window.location.href = './registrationConfirmation.php';
 							} else {
-								console.log(typeof value);
 								this.registrationView.renderErrorMessage('er-upload');
 							}
 						});
