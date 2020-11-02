@@ -93,7 +93,7 @@
         if ($response === '1') {
             header('Location: ../home/home.php');
         } else {
-            $_SESSION['error'] = '* Error: Profile information not updated.';
+            $_SESSION['error'] = getType($response) . 'Response: ' . $response;
             header('Location: edit-profile.php');
         }
     }
