@@ -31,7 +31,7 @@ class HomeView {
         echo '</div>'; // end profile_back
         
         echo '<div class="col-sm-1"></div>';
-        echo '<div class="col-sm-8 float-left" id="text">';
+        echo '<div class="col-sm-5 float-left" id="text">';
 		echo '<h1><strong>' . $data['first_name'] . ' ' . $data['last_name'] . '</strong></h1>';
         echo '<h6 id="author">' . $data['about_me'] . '</h6>';
         echo '</div>'; // end align middle
