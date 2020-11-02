@@ -58,7 +58,7 @@ class DbModel {
 
 		$response = $stmt->execute();
 
-		print_r($response);
+		return $response;
 	}
  }
 
