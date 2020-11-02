@@ -27,11 +27,11 @@ class EditView {
         echo '<form action="new.php" class="md-form" name="editForm" method="post">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
-        if ($_SESSION['error'] !== '') {
-            echo $_SESSION['error'];
-        }
         echo '<div class="col" id="text">';
         echo '<h1><strong>Edit your profile...</strong></h1>';
+        if ($_SESSION['error'] !== '') {
+            echo '<small id="msg-disable" class="form-text text-muted">* ' . $_SESSION['error'] . '</small>';
+        }
         echo '</div>'; // end text container
         echo '</div>'; // end row 2
         echo '<hr>';
@@ -78,10 +78,6 @@ class EditView {
         echo '</form>'; // End form
         
         echo '</div>'; // end container fluid
-
-
-        
-
     }
 
 }

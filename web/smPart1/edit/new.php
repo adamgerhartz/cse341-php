@@ -10,7 +10,7 @@
 <body>
 
 <?php
-
+    $_SESSION['error'] = '';
     $firstName = $_POST['first_name'];
     $lastName  = $_POST['last_name'];
     
