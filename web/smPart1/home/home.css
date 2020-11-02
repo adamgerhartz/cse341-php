@@ -31,7 +31,6 @@ a:hover {
 #row2 {
     padding-top: 50px;
 	padding-bottom: 50px;
-	width: 85%;
 }
 
 #row3 {
@@ -87,4 +86,10 @@ p {
 	border-radius: 50%;
 	/*object-position: center;
   	object-fit: cover;*/
+}
+
+.d-flex {
+	padding: 3%;
+    width: 100%;
+    height: auto;
 }
