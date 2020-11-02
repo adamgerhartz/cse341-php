@@ -111,3 +111,9 @@ p {
 	height: auto;
 	border-radius: 50%;
 }
+
+.d-flex {
+	padding: 3%;
+    width: 100%;
+    height: auto;
+}
