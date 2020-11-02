@@ -17,15 +17,19 @@ class EditController {
     }
 
     function addEventListeners() {
-        echo '<script>  
+        // echo '<script>  
 
-                const submit = document.getElementbById("submit")
-                submit.addEventLister("click", (event)=> {
-                   event.preventDefault();
-                   <p>Hello</p>;
-                });
+        //         const submit = document.getElementbById("submit")
+        //         submit.addEventLister("click", (event)=> {
+        //            event.preventDefault();
+        //            <p>Hello</p>;
+        //         });
         
-              </script>';
+        //       </script>';
+
+        if (isset($_POST['submit'])) {
+            echo 'HURRAY!';
+        }
     }
 }
 
