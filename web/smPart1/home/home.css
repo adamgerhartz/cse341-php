@@ -1,9 +1,9 @@
 body {
-	background-color: #eee5e9;
+	background-color: #FFFFFF;
 }
 
 #row1, #footer {
-	background-color: #cc2936;
+	background-color: #cf995f;
 }
 
 .col-sm-1, .col-sm-5, .col-sm-8 {
@@ -13,20 +13,20 @@ body {
 
 #target {
 	font-weight: bold;
-	color: #08415c;
+	color: #628395;
 	letter-spacing: 3px;
 }
 
 a, #foot_text {
 	padding: 5px;
-	color: white;
+	color: #96897b;
 	font-size: 14px;
 	font-family: roboto;
 	letter-spacing: 2px;
 }
 
 a:hover {
-	color: #6b818c;
+	color: #dbad6a;
 	text-decoration: none;
 	font-weight: bold;
 	letter-spacing: 3px;
@@ -38,14 +38,14 @@ a:hover {
 
 hr {
 	width: 85%;
-	border-top: 1px solid #6b818c;
+	border-top: 1px solid ##f9f9f9;
 }
 
 
 #profile_back {
 	height: auto;
 	width: auto;
-	background-color: #f1bf98;
+	background-color: #628395;
 	border-radius: 60%;
 	box-shadow: 5px 10px 18px #888888;
 }
@@ -62,7 +62,7 @@ hr {
 h1, h6 {
 	font-family: roboto;
 	letter-spacing: 2px;
-	color: #08415c;
+	color: #000000;
 }
 
 p {
@@ -75,7 +75,7 @@ p {
 }
 
 #author {
-	color: #6b818c;
+	color: #cf995f;
 }
 
 #profile_picture {
@@ -93,4 +93,4 @@ p {
     height: auto;
 }
 
-/* /* 08415c-cc2936-6b818c-f1bf98-eee5e9 */
+/*628395-96897b-dfd5a5-dbad6a-cf995f */
