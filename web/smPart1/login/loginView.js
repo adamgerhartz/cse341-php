@@ -19,14 +19,14 @@ export default class LoginView {
 		const div = document.createElement('div');
 		div.innerHTML = (`
 			<label for='${child.toLowerCase()}'>${child}</label><br/>
-			<input type='${child === 'Password' ? 'password' : 'text'}' class='light' name='${child.toLowerCase()}' autocomplete='off'>
+			<input type='${child === 'Password' ? 'password' : 'text'}' class='light form-control' name='${child.toLowerCase()}' autocomplete='off'>
 		`);
 		return div;
 	}
 
 	renderSubmitDiv() {
 		const div = document.createElement('div');
-		div.innerHTML = `<input type='submit' class='light' name='submit'>`;
+		div.innerHTML = `<input type='submit' class='light btn-primary' name='submit'>`;
 		return div;
 	}
 
