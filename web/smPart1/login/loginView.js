@@ -26,7 +26,7 @@ export default class LoginView {
 
 	renderSubmitDiv() {
 		const div = document.createElement('div');
-		div.innerHTML = `<input type='submit' class='light btn-primary' name='submit'>`;
+		div.innerHTML = `<input type='submit' class='btn light btn-primary' name='submit' value='Login'>`;
 		return div;
 	}
 
