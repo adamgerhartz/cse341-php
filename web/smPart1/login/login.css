@@ -1,5 +1,5 @@
 #error {
-	color: red;
+	color: darkred;
 }
 
 h1 {
@@ -8,6 +8,9 @@ h1 {
 
 .container {
 	margin-top: 4rem;
+	padding: 1em;
+	border-radius: 5px;
+	border: 1px solid gainsboro;
 }
 
 input[type=submit] {
@@ -16,4 +19,13 @@ input[type=submit] {
 
 label {
 	margin-top: 15px;
+}
+
+input[type=text], input[type=password] {
+	width: 50%;
+}
+
+#login-form {
+	padding: 1em 0;
+	border-top: 1px solid gainsboro;
 }
