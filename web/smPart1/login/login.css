@@ -14,7 +14,7 @@ h1 {
 	margin-top: 4rem;
 	padding: 1em;
 	border-radius: 5px;
-	border: 1px solid gainsboro;
+	border: 1px solid #6b818c;
 }
 
 input[type=submit] {
@@ -33,7 +33,7 @@ input[type=text], input[type=password] {
 
 #login-form {
 	padding: 1em 0;
-	border-top: 1px solid gainsboro;
+	border-top: 1px solid #6b818c;
 }
 
 
