@@ -1,26 +1,27 @@
 main {
-	background-color: #eee5e9;
+	background-color: #fa8334;
 }
 
 #error {
-	color: #cc2936;
+	color: #fffd77;
 }
 
 h1 {
-	color: #f1bf98;
+	color: #388697;
 }
 
 .container {
 	margin-top: 4rem;
 	padding: 1em;
 	border-radius: 5px;
-	border: 1px solid #6b818c;
+	border: 1px solid #fa8334;
 }
 
 input[type=submit] {
 	margin-top: 1em;
-	background-color: #08415c;
-	border: #08415c;
+	color: #FFFFFF;
+	background-color: #388697;
+	border: #388697;
 }
 
 label {
@@ -33,8 +34,9 @@ input[type=text], input[type=password] {
 
 #login-form {
 	padding: 1em 0;
-	border-top: 1px solid #6b818c;
+	border-top: 1px solid #388697;
 }
 
-
-/* 08415c-cc2936-6b818c-f1bf98-eee5e9 */
+#registration-link {
+	color: #388697;
+}
