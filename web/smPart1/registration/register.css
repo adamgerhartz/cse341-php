@@ -1,125 +1,46 @@
-body {
-	background-color: #eee5e9;
+main {
+	background-color: #628395;
 }
 
-#row1, #footer {
-	background-color: #cc2936;
+#error {
+	color: #cf995f;
 }
 
-.col-sm-1, .col-sm-5, .col-sm-8 {
-	padding: 5px 0;
-	padding-left: 10px;
+h1 {
+	color: #cf995f;
 }
 
-#target {
-	font-weight: bold;
-	color: #08415c;
-	letter-spacing: 3px;
-}
-
-#file {
-	pointer-events: none;
-}
-
-#msg-disable {
-	font-family: roboto;
-	color: #cc2936;
-}
-
-a, #foot_text {
-	padding: 5px;
-	color: #eee5e9;
-	font-size: 14px;
-	font-family: roboto;
-	letter-spacing: 2px;
-}
-
-.custom-file, #first_name, #last_name {
-	width: 90%;
-}
-
-#about-me {
-	width:90%;
-	height:200px;
-	padding: 5px;
-	font:24px roboto;
-	border:2px solid #6b818c;
+.container {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	padding: 1em;
 	border-radius: 5px;
-}
-
-a:hover {
-	color: #6b818c;
-	text-decoration: none;
-	font-weight: bold;
-	letter-spacing: 3px;
-}
-
-#row2, #row3, #row4, #row5, #row6 {
-    padding-top: 0px;
-    padding-bottom: 50px;
-}
-
-#row2 {
-	padding-top: 50px;
-	padding-bottom: 0px;
-}
-
-hr {
-	width: 85%;
-	border-top: 1px solid #6b818c;
-}
-
-
-#profile_back {
-	height: auto;
-	width: auto;
-	background-color: #8FBC8F;
-	border-radius: 60%;
-	box-shadow: 5px 10px 18px #888888;
+	border: 1px solid #96897b;
 }
 
 input[type=submit] {
-	background-color: #08415c;
-	border: #08415c;
+	margin-top: 1em;
+	color: #FFFFFF;
+	background-color: #cf995f;
+	border: #FFFFFF;
 }
 
-#text {
-	margin: auto;
-	height: auto;
-	width: 85%;
-	border-radius: 5px;
-	padding: 10px;
-	object-position: center;
-	color: #08415c;
+label {
+	color: #cf995f;
+	margin-top: 15px;
 }
 
-h1, h6, h2 {
-	font-family: roboto;
-	letter-spacing: 2px;
+input[type=text], input[type=password] {
+	width: 50%;
 }
 
-h2 {
-	padding-bottom: 16px;
+#login-form {
+	padding: 1em 0;
+	border-top: 1px solid #dfd5a5;
 }
 
-p {
-	font-family: quicksand;
-	letter-spacing: 1px;
+#registration-link {
+	color: #FFFFFF;
 }
 
-#first_p {
-	padding-top: 25px;
-}
-
-#author {
-	color: #6b818c;
-}
-
-#profile_picture {
-	padding: 2%;
-	width: 16em;
-	height: auto;
-	border-radius: 50%;
-}
-
-/* 08415c-cc2936-6b818c-f1bf98-eee5e9 */
+/*628395-96897b-dfd5a5-dbad6a-cf995f */
