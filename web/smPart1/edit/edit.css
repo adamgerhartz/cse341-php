@@ -1,5 +1,9 @@
+body {
+	background-color: #dfd5a5;
+}
+
 #row1, #footer {
-	background-color: #00003f;
+	background-color: #96897b;
 }
 
 .col-sm-1, .col-sm-5, .col-sm-8 {
@@ -9,7 +13,7 @@
 
 #target {
 	font-weight: bold;
-	color: lightblue;
+	color: #dfd5a5;
 	letter-spacing: 3px;
 }
 
@@ -39,12 +43,12 @@ a, #foot_text {
 	height:200px;
 	padding: 5px;
 	font:24px roboto;
-	border:2px solid #EAEAEA;
+	border:2px solid #628395;
 	border-radius: 5px;
 }
 
 a:hover {
-	color: lightblue;
+	color: #cf995f;
 	text-decoration: none;
 	font-weight: bold;
 	letter-spacing: 3px;
@@ -62,17 +66,9 @@ a:hover {
 
 hr {
 	width: 85%;
-	border-top: 1px solid #EAEAEA;
+	border-top: 1px solid #628395;
 }
 
-
-#profile_back {
-	height: auto;
-	width: auto;
-	background-color: #8FBC8F;
-	border-radius: 60%;
-	box-shadow: 5px 10px 18px #888888;
-}
 
 #text {
 	margin: auto;
@@ -111,4 +107,15 @@ p {
 	height: auto;
 	border-radius: 50%;
 }
+
+input[type=submit] {
+	background-color: #628395;
+	border: #628395;
+}
+
+input[type=submit]:hover {
+	background-color: #cf995f;
+}
+
+/*628395-96897b-dfd5a5-dbad6a-cf995f */
 
