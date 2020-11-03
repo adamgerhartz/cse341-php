@@ -22,8 +22,10 @@ class EditView {
         echo '<a href="../login/login.html">Logout</a>';
         echo '</div>'; // end col-sm-5
         echo '</div>'; // end row 1
+        echo '</div>'; // end container fluid
         
         // Start Form
+        echo '<div class="container">';
         echo '<form action="new.php" class="md-form" name="editForm" method="post">';
         echo '<div class="row" id="row2">';
         echo '<div class="col-sm-1"></div>';
@@ -77,7 +79,7 @@ class EditView {
         echo '<input type="submit" class="btn btn-primary" id="submit" value="Save">';
         echo '</form>'; // End form
         
-        echo '</div>'; // end container fluid
+        echo '</div>'; // end container
     }
 
 }
