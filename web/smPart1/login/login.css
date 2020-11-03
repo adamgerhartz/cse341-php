@@ -30,7 +30,7 @@ label {
 }
 
 input[type=text], input[type=password] {
-	width: 50%;
+	width: 100%;
 }
 
 #login-form {
