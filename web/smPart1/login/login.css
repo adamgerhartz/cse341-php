@@ -1,30 +1,31 @@
 main {
-	background-color: #fa8334;
+	background-color: #96897b;
 }
 
 #error {
-	color: #fffd77;
+	color: #dfd5a5;
 }
 
 h1 {
-	color: #388697;
+	color: #FFFFFF;
 }
 
 .container {
 	margin-top: 4rem;
 	padding: 1em;
 	border-radius: 5px;
-	border: 1px solid #fa8334;
+	border: 1px solid #96897b;
 }
 
 input[type=submit] {
 	margin-top: 1em;
 	color: #FFFFFF;
-	background-color: #388697;
-	border: #388697;
+	background-color: #dbad6a;
+	border: #dbad6a;
 }
 
 label {
+	color: #dfd5a5;
 	margin-top: 15px;
 }
 
@@ -34,9 +35,12 @@ input[type=text], input[type=password] {
 
 #login-form {
 	padding: 1em 0;
-	border-top: 1px solid #388697;
+	border-top: 1px solid #dfd5a5;
 }
 
 #registration-link {
-	color: #388697;
+	color: #FFFFFF;
 }
+
+
+/* 628395-96897b-dfd5a5-dbad6a-cf995f */
