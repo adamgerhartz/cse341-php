@@ -31,7 +31,7 @@ export default class RegistrationView {
 		const div = document.createElement('div');
 		div.innerHTML = (`
 			<label for='${child.toLowerCase()}'>${child}</label><br/>
-			<input type="${child === 'Password' ? 'password' : 'text'}" class='light' name='${child.toLowerCase()}' autocomplete='off'>
+			<input type="${child === 'Password' ? 'password' : 'text'}" class='light form-control' name='${child.toLowerCase()}' autocomplete='off'>
 		`);
 		return div;
 	}
@@ -48,11 +48,11 @@ export default class RegistrationView {
 		div.innerHTML = (`
 			<div id='firstNameContainer'>
 			  <label for='firstname'>First Name:</label><br/>
-			  <input type='text' class='light' name='firstname' autocomplete='off'>
+			  <input type='text' class='light form-control' name='firstname' autocomplete='off'>
 			</div>
 			<div id='lastNameContainer'>
 			  <label for='lastname'>Last Name:</label><br/>
-			  <input type='text' class='light' name='lastname' autocomplete='off'>
+			  <input type='text' class='light form-control' name='lastname' autocomplete='off'>
 			</div>
 		`);
 		return div;
@@ -63,7 +63,7 @@ export default class RegistrationView {
 	*********************************/
 	renderSubmitDiv() {
 		const div = document.createElement('div');
-		div.innerHTML = `<input type='submit' class='light' name='submit' value='Register'>`;
+		div.innerHTML = `<input type='submit' class='btn light btn-primary' name='submit' value='Register'>`;
 		return div;
 	}
 

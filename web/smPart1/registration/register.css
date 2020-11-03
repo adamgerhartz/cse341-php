@@ -1,3 +1,40 @@
-#error {
-	color: red;
+body {
+	background-color: #eee5e9;
 }
+
+#error {
+	color: #cc2936;
+}
+
+h1 {
+	color: #f1bf98;
+}
+
+.container {
+	margin-top: 4rem;
+	padding: 1em;
+	border-radius: 5px;
+	border: 1px solid gainsboro;
+}
+
+input[type=submit] {
+	margin-top: 1em;
+	background-color: #08415c;
+	border: #08415c;
+}
+
+label {
+	margin-top: 15px;
+}
+
+input[type=text], input[type=password] {
+	width: 50%;
+}
+
+#registration-form {
+	padding: 1em 0;
+	border-top: 1px solid gainsboro;
+}
+
+
+/* 08415c-cc2936-6b818c-f1bf98-eee5e9 */
