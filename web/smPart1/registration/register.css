@@ -15,7 +15,7 @@ h1 {
 	margin-bottom: 4rem;
 	padding: 1em;
 	border-radius: 5px;
-	border: 1px solid #96897b;
+	border: 1px solid #628395;
 }
 
 input[type=submit] {
@@ -37,6 +37,15 @@ input[type=text], input[type=password] {
 #registration-form {
 	padding: 1em 0;
 	border-top: 1px solid #dfd5a5;
+}
+
+a {
+	color: #FFFFFF;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #DFD5A5;
 }
 
 #registration-link {
