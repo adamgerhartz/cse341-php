@@ -1,10 +1,13 @@
+body {
+	background-color: #eee5e9;
+}
 
 #error {
 	color: #cc2936;
 }
 
 h1 {
-	color: burlywood;
+	color: #f1bf98;
 }
 
 .container {
@@ -17,6 +20,7 @@ h1 {
 input[type=submit] {
 	margin-top: 1em;
 	background-color: #08415c;
+	border: #08415c;
 }
 
 label {
