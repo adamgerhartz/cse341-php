@@ -7,6 +7,7 @@ main {
 }
 
 h1 {
+	padding: 0 25%;
 	color: #dfd5a5;
 }
 
@@ -40,7 +41,7 @@ input[type=text], input[type=password] {
 }
 
 a {
-	color: #FFFFFF;
+	color: #628395;
 }
 
 a:hover {
@@ -50,6 +51,10 @@ a:hover {
 
 #registration-link {
 	color: #FFFFFF;
+}
+
+#registration-form {
+	padding: 0 25%;
 }
 
 /*628395-96897b-dfd5a5-dbad6a-cf995f */
